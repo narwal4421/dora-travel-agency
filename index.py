@@ -25,6 +25,7 @@ CULTURE_DB = {
 }
 
 @app.route('/api/weather', methods=['GET'])
+@app.route('/weather', methods=['GET'])
 def get_weather():
     lat = request.args.get('lat')
     lon = request.args.get('lon')
@@ -143,6 +144,7 @@ def generate_itinerary(dest, days, interests, places, signature_food):
     return days_list
 
 @app.route('/api/plan-trip', methods=['POST'])
+@app.route('/plan-trip', methods=['POST'])
 def plan_trip():
     data = request.json
     dest = data.get('destination', 'Unknown')
