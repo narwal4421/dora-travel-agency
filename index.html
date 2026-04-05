@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dora Travel Agency | AI Travel Assistant</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Three.js and Globe.gl -->
+    <script src="//unpkg.com/three"></script>
+    <script src="//unpkg.com/globe.gl"></script>
+</head>
+<body>
+    <div class="background-globes">
+        <div class="globe globe-1"></div>
+        <div class="globe globe-2"></div>
+    </div>
+
+    <!-- MAIN NAV -->
+    <nav class="glass-nav">
+        <div class="logo">
+            <i class="fa-solid fa-gem"></i>
+            <span>Dora Travel Agency</span>
+        </div>
+        <div class="theme-toggle" id="theme-toggle" title="Toggle Theme">
+            <i class="fa-solid fa-moon"></i>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- VIEW 1: SEARCH FORM -->
+        <section id="search-view" class="view active">
+            <div class="hero-text">
+                <h1>Design Your Dream Trip with AI</h1>
+                <p>Enter your preferences and let our advanced AI assemble the perfect travel package and itinerary in seconds.</p>
+            </div>
+
+            <div class="search-card glass-panel fade-in-up">
+                <form id="trip-form">
+                    <div class="form-group">
+                        <label for="destination"><i class="fa-solid fa-map-location-dot"></i> Destination</label>
+                        <input type="text" id="destination" placeholder="e.g., Tokyo, Paris, Bali" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="days"><i class="fa-solid fa-calendar-days"></i> Duration (Days)</label>
+                            <input type="number" id="days" min="1" max="30" value="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget"><i class="fa-solid fa-wallet"></i> Budget Profile</label>
+                            <select id="budget" required>
+                                <option value="low">Budget Friendly</option>
+                                <option value="medium" selected>Balanced / Medium</option>
+                                <option value="high">Luxury</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="flight-option"><i class="fa-solid fa-plane"></i> Flight Preference</label>
+                            <select id="flight-option">
+                                <option value="any">Find Best Flights</option>
+                                <option value="none">No Flight Needed</option>
+                                <option value="economy">Economy Class Only</option>
+                                <option value="business">Business/First Class</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="hotel-choice"><i class="fa-solid fa-bed"></i> Preferred Hotel</label>
+                            <input type="text" id="hotel-choice" placeholder="e.g., Hilton, Boutique, Airbnb">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interests"><i class="fa-solid fa-heart"></i> Special Interests (Optional)</label>
+                        <input type="text" id="interests" placeholder="e.g., Food, History, Hiking, Nightlife">
+                    </div>
+
+                    <button type="submit" class="primary-btn pulse-glow">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Itinerary
+                    </button>
+                </form>
+            </div>
+            
+            <!-- CINEMATIC GLOBE LOADER -->
+            <div id="cinematic-loader" class="hidden">
+                 <div id="globeViz"></div>
+                 <div id="destination-reveal" class="hidden">
+                     <h1 id="cinematic-dest-name">Destination</h1>
+                     <p>Crafting your perfect itinerary...</p>
+                 </div>
+            </div>
+        </section>
+
+        <!-- VIEW 2: RESULTS DASHBOARD -->
+        <section id="results-view" class="view hidden">
+            <div class="dashboard-header">
+                <h2>Your trip to <span class="highlight" id="res-destination">Destination</span></h2>
+                <div style="display:flex; gap: 1rem;">
+                    <button class="secondary-btn" disabled style="opacity: 0.5; cursor: not-allowed; border-color: rgba(255,255,255,0.1);"><i class="fa-solid fa-file-pdf"></i> Export PDF <span class="badge">Soon</span></button>
+                    <button id="new-search-btn" class="secondary-btn"><i class="fa-solid fa-arrow-left"></i> New Search</button>
+                </div>
+            </div>
+
+            <!-- WEATHER WIDGET -->
+            <div class="weather-widget glass-panel fade-in-up" style="animation-delay: 0.1s">
+                <div class="weather-icon">
+                    <i id="weather-icon-class" class="fa-solid fa-cloud-sun"></i>
+                </div>
+                <div class="weather-info">
+                    <h3 id="w-temp">--°C</h3>
+                    <p id="w-condition">Loading weather...</p>
+                    <small id="w-tips">Please wait.</small>
+                </div>
+            </div>
+
+            <!-- TABS -->
+            <div class="tabs fade-in-up" style="animation-delay: 0.2s">
+                <button class="tab-btn active" data-tab="packages">Packages</button>
+                <button class="tab-btn" data-tab="itinerary">Itinerary</button>
+                <button class="tab-btn" data-tab="local">Local Guide</button>
+                <button class="tab-btn" data-tab="map" style="opacity: 0.7;">Interactive Map <span class="badge">Soon</span></button>
+            </div>
+
+            <!-- TAB CONTENTS -->
+            <div class="tab-content fade-in-up" style="animation-delay: 0.3s">
+                
+                <!-- Packages Tab -->
+                <div id="tab-packages" class="tab-pane active">
+                    <div class="packages-grid" id="packages-container">
+                        <!-- Packages injected here -->
+                    </div>
+                </div>
+
+                <!-- Itinerary Tab -->
+                <div id="tab-itinerary" class="tab-pane">
+                    <div class="timeline" id="itinerary-timeline">
+                        <!-- Itinerary days injected here -->
+                    </div>
+                </div>
+
+                <!-- Local Guide Tab -->
+                <div id="tab-local" class="tab-pane">
+                    <div class="masonry-grid">
+                        <div class="guide-card glass-panel">
+                            <h3><i class="fa-solid fa-landmark"></i> Must Visits</h3>
+                            <ul id="must-visits-list"></ul>
+                        </div>
+                        <div class="guide-card glass-panel">
+                            <h3><i class="fa-solid fa-language"></i> Language</h3>
+                            <p id="guide-language"></p>
+                        </div>
+                        <div class="guide-card glass-panel">
+                            <h3><i class="fa-solid fa-money-bill-wave"></i> Currency</h3>
+                            <p id="guide-currency"></p>
+                        </div>
+                        <div class="guide-card glass-panel">
+                            <h3><i class="fa-solid fa-mask"></i> Culture Protocol</h3>
+                            <p id="guide-culture"></p>
+                        </div>
+                        <div class="guide-card glass-panel">
+                            <h3><i class="fa-solid fa-utensils"></i> Food Scene</h3>
+                            <p id="guide-food"></p>
+                        </div>
+                        <div class="guide-card glass-panel">
+                            <h3><i class="fa-solid fa-shield-halved"></i> Safety</h3>
+                            <p id="guide-safety"></p>
+                        </div>
+                        <div class="guide-card glass-panel">
+                            <h3><i class="fa-solid fa-suitcase-rolling"></i> Smart Packing List</h3>
+                            <ul id="packing-list" style="list-style-type: none; margin-top: 10px;"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Tab -->
+                <div id="tab-map" class="tab-pane">
+                    <div class="map-placeholder fade-in-up">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <h3>Interactive Map Integration is Coming Soon</h3>
+                        <p>We are currently partnering with premium map providers to bring you live routing and location tracking directly in the dashboard.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
