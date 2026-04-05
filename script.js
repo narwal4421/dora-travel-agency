@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return el;
                 });
                 
-            world.pointOfView({ lat: planData.lat, lng: planData.lon, altitude: 0.1 }, 4500); // Extreme 4.5s cinematic zoom
+            world.pointOfView({ lat: planData.lat, lng: planData.lon, altitude: 0.04 }, 4500); // Extreme 4.5s cinematic zoom for precise location
 
             // Scene 3: Elegant Reveal
             setTimeout(() => {
