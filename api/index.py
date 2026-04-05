@@ -1,14 +1,3 @@
-Viewed index.py:1-383
-
-Perfect! Keeping the backend ultra-smart while leaving the frontend UI completely clean and minimalist is the best approach. 
-
-Since you need to update GitHub, here is the absolute final and fully upgraded version of your **`api/index.py`** file. 
-
-It contains the Vercel routing fixes, the massive `FAMOUS_LANDMARKS` dictionary (80+ items), the massive brand-new `CULTURE_DB` (50+ items), and the intelligent backend fallback logic string formatting. 
-
-Copy all of this code below, and paste it into `api/index.py` on your GitHub repository!
-
-```python
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import requests
@@ -391,4 +380,3 @@ def plan_trip():
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
-```
