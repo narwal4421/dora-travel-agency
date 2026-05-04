@@ -8,11 +8,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css">
-    
+
     <!-- Three.js and Globe.gl -->
     <script src="//unpkg.com/three"></script>
     <script src="//unpkg.com/globe.gl"></script>
+    <!-- Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
     <div class="background-globes">
@@ -102,7 +106,10 @@
         <section id="results-view" class="view hidden">
             <div class="dashboard-header">
                 <h2>Your trip to <span class="highlight" id="res-destination">Destination</span></h2>
-                <div style="display:flex; gap: 1rem;">
+                <div style="display:flex; gap: 1rem; flex-wrap:wrap; align-items:center;">
+                    <button id="chat-toggle-btn" class="secondary-btn" title="AI Trip Assistant"><i class="fa-solid fa-comment-dots"></i> Ask AI</button>
+                    <button id="cal-google-btn" class="secondary-btn" title="Add to Google Calendar"><i class="fa-brands fa-google"></i> Google Cal</button>
+                    <button id="cal-ics-btn" class="secondary-btn" title="Download .ics for Apple Calendar"><i class="fa-solid fa-calendar-check"></i> Download .ics</button>
                     <button id="new-search-btn" class="secondary-btn"><i class="fa-solid fa-arrow-left"></i> New Search</button>
                 </div>
             </div>
@@ -124,7 +131,7 @@
                 <button class="tab-btn active" data-tab="packages">Packages</button>
                 <button class="tab-btn" data-tab="itinerary">Itinerary</button>
                 <button class="tab-btn" data-tab="local">Local Guide</button>
-                <button class="tab-btn" data-tab="map" style="opacity: 0.7;">Interactive Map <span class="badge">Soon</span></button>
+                <button class="tab-btn" data-tab="map">Interactive Map</button>
             </div>
 
             <!-- TAB CONTENTS -->
@@ -139,6 +146,11 @@
 
                 <!-- Itinerary Tab -->
                 <div id="tab-itinerary" class="tab-pane">
+                    <div class="itinerary-toolbar">
+                        <span class="itinerary-toolbar-label">Export itinerary</span>
+                        <button id="it-google-btn" class="secondary-btn"><i class="fa-brands fa-google"></i> Google Calendar</button>
+                        <button id="it-ics-btn" class="secondary-btn"><i class="fa-solid fa-download"></i> Download .ics</button>
+                    </div>
                     <div class="timeline" id="itinerary-timeline">
                         <!-- Itinerary days injected here -->
                     </div>
@@ -180,16 +192,31 @@
 
                 <!-- Map Tab -->
                 <div id="tab-map" class="tab-pane">
-                    <div class="map-placeholder fade-in-up">
-                        <i class="fa-solid fa-map-location-dot"></i>
-                        <h3>Interactive Map Integration is Coming Soon</h3>
-                        <p>We are currently partnering with premium map providers to bring you live routing and location tracking directly in the dashboard.</p>
-                    </div>
+                    <div class="map-legend" id="map-legend"></div>
+                    <div id="leaflet-map"></div>
                 </div>
 
             </div>
         </section>
     </main>
+
+    <!-- AI CHAT SIDEBAR -->
+    <div id="chat-sidebar" class="chat-sidebar">
+        <div class="chat-header">
+            <span>AI Trip Assistant</span>
+            <button id="chat-close-btn" class="chat-close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="chat-bubble assistant">
+                Hello! I'm your AI trip companion. Ask me anything about your itinerary — want to swap activities, adjust budget, find restaurants, or get packing tips?
+            </div>
+        </div>
+        <div class="chat-input-row">
+            <input type="text" id="chat-input" placeholder="e.g. Suggest a vegetarian restaurant..." autocomplete="off">
+            <button id="chat-send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+    <div id="chat-overlay" class="chat-overlay"></div>
 
     <script src="script.js"></script>
 </body>

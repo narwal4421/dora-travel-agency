@@ -3,6 +3,11 @@
 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
 const API_BASE_URL = isLocal ? 'http://127.0.0.1:5000/api' : '/api';
 
+// Global trip state — shared by map, chat, and calendar features
+let _tripData = null;
+let _leafletMap = null;
+let _mapInitialised = false;
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // Theme Toggling
@@ -268,6 +273,20 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('guide-safety').textContent = data.localGuide.safety;
         document.getElementById('guide-language').textContent = data.localGuide.language;
         document.getElementById('guide-currency').textContent = data.localGuide.currency;
+
+        // 4. Store globally for map / chat / calendar
+        _tripData = data;
+        _mapInitialised = false; // reset so map re-inits for new trips
+
+        // 5. Wire calendar export buttons (header + itinerary toolbar)
+        ['cal-google-btn','it-google-btn'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.onclick = () => exportToGoogleCalendar(data);
+        });
+        ['cal-ics-btn','it-ics-btn'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.onclick = () => exportToICS(data);
+        });
     }
 
     function renderItinerary(itinerary) {
@@ -307,6 +326,10 @@ document.addEventListener('DOMContentLoaded', () => {
     tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             switchTab(btn.dataset.tab);
+            if (btn.dataset.tab === 'map' && !_mapInitialised && _tripData) {
+                // slight delay so the pane is visible before Leaflet measures it
+                setTimeout(() => initMap(_tripData), 80);
+            }
         });
     });
 
@@ -336,6 +359,163 @@ document.addEventListener('DOMContentLoaded', () => {
         items.forEach(item => {
             packingList.innerHTML += `<li style="padding: 6px 0; font-size: 0.9rem;">${item}</li>`;
         });
+    }
+
+    // ─── Interactive Map (Leaflet + OpenStreetMap) ──────────────────
+    function initMap(data) {
+        if (_mapInitialised) return;
+        _mapInitialised = true;
+
+        const lat = data.lat || 35.6762;
+        const lon = data.lon || 139.6503;
+
+        if (_leafletMap) { _leafletMap.remove(); _leafletMap = null; }
+
+        _leafletMap = L.map('leaflet-map', { zoomControl: true }).setView([lat, lon], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19
+        }).addTo(_leafletMap);
+
+        // Gold pin SVG for destination centre
+        const goldIcon = L.divIcon({
+            className: '',
+            html: `<div style="font-size:2rem;filter:drop-shadow(0 0 8px #d4af37);line-height:1;">📍</div>`,
+            iconAnchor: [14, 32], popupAnchor: [0, -34]
+        });
+
+        L.marker([lat, lon], { icon: goldIcon })
+            .addTo(_leafletMap)
+            .bindPopup(`<strong>${data.destination}</strong><br>Your destination`)
+            .openPopup();
+
+        // Attraction markers
+        const legend = document.getElementById('map-legend');
+        if (legend) legend.innerHTML =
+            `<span><span class="map-legend-dot" style="background:#d4af37"></span>Destination</span>` +
+            `<span><span class="map-legend-dot" style="background:#888"></span>Attractions</span>`;
+
+        if (data.mustVisits && data.mustVisits.length) {
+            data.mustVisits.forEach((place, i) => {
+                // Offset markers slightly around centre if no exact coords
+                const offsetLat = lat + (Math.random() - 0.5) * 0.04;
+                const offsetLon = lon + (Math.random() - 0.5) * 0.04;
+                const attrIcon = L.divIcon({
+                    className: '',
+                    html: `<div style="width:12px;height:12px;border-radius:50%;background:#888;border:2px solid #555;"></div>`,
+                    iconAnchor: [6, 6], popupAnchor: [0, -10]
+                });
+                L.marker([offsetLat, offsetLon], { icon: attrIcon })
+                    .addTo(_leafletMap)
+                    .bindPopup(`<strong>${place.name}</strong><br><em style="color:#d4af37">${place.category}</em><br>${place.desc}`);
+            });
+        }
+    }
+
+    // ─── Calendar Export ─────────────────────────────────────────────
+    function exportToGoogleCalendar(data) {
+        const today = new Date();
+        data.packages[0].itinerary.forEach((day, i) => {
+            const start = new Date(today);
+            start.setDate(today.getDate() + i);
+            const fmt = d => d.toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
+            const details = day.activities.join(' | ');
+            const url = `https://calendar.google.com/calendar/render?action=TEMPLATE` +
+                `&text=${encodeURIComponent(`Day ${day.day} – ${data.destination}`)}` +
+                `&dates=${fmt(start)}/${fmt(start)}` +
+                `&details=${encodeURIComponent(details)}`;
+            setTimeout(() => window.open(url, '_blank'), i * 300);
+        });
+    }
+
+    function exportToICS(data) {
+        const today = new Date();
+        let ics = `BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Dora Travel Agency//EN\r\n`;
+        data.packages[0].itinerary.forEach((day, i) => {
+            const d = new Date(today);
+            d.setDate(today.getDate() + i);
+            const fmt = date => date.toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
+            const uid = `day${day.day}-${Date.now()}@dora-travel`;
+            ics += `BEGIN:VEVENT\r\n`;
+            ics += `UID:${uid}\r\n`;
+            ics += `SUMMARY:Day ${day.day} – ${data.destination}\r\n`;
+            ics += `DTSTART:${fmt(d)}\r\n`;
+            ics += `DTEND:${fmt(d)}\r\n`;
+            ics += `DESCRIPTION:${day.activities.join('\\n')}\r\n`;
+            ics += `END:VEVENT\r\n`;
+        });
+        ics += `END:VCALENDAR`;
+        const blob = new Blob([ics], { type: 'text/calendar' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `${data.destination.replace(/\s+/g,'-')}-itinerary.ics`;
+        a.click();
+    }
+
+    // ─── AI Chat Sidebar ─────────────────────────────────────────────
+    const chatSidebar  = document.getElementById('chat-sidebar');
+    const chatOverlay  = document.getElementById('chat-overlay');
+    const chatMessages = document.getElementById('chat-messages');
+    const chatInput    = document.getElementById('chat-input');
+
+    function openChat() { chatSidebar.classList.add('open'); chatOverlay.classList.add('active'); chatInput.focus(); }
+    function closeChat() { chatSidebar.classList.remove('open'); chatOverlay.classList.remove('active'); }
+
+    document.getElementById('chat-toggle-btn').addEventListener('click', openChat);
+    document.getElementById('chat-close-btn').addEventListener('click', closeChat);
+    chatOverlay.addEventListener('click', closeChat);
+
+    document.getElementById('chat-send-btn').addEventListener('click', sendChat);
+    chatInput.addEventListener('keydown', e => { if (e.key === 'Enter') sendChat(); });
+
+    async function sendChat() {
+        const msg = chatInput.value.trim();
+        if (!msg) return;
+        chatInput.value = '';
+
+        appendBubble(msg, 'user');
+        const typingEl = appendTyping();
+
+        const context = _tripData ? {
+            destination: _tripData.destination,
+            days: _tripData.days,
+            food: _tripData.localGuide?.food,
+            culture: _tripData.localGuide?.culture,
+            safety: _tripData.localGuide?.safety,
+            currency: _tripData.localGuide?.currency
+        } : {};
+
+        try {
+            const res = await fetch(`${API_BASE_URL}/chat`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: msg, context })
+            });
+            const json = await res.json();
+            typingEl.remove();
+            appendBubble(json.reply || 'I could not process that. Please try again.', 'assistant');
+        } catch(e) {
+            typingEl.remove();
+            appendBubble('Sorry, the AI assistant is currently unavailable. Please ensure the backend server is running.', 'assistant');
+        }
+    }
+
+    function appendBubble(text, role) {
+        const div = document.createElement('div');
+        div.className = `chat-bubble ${role}`;
+        div.textContent = text;
+        chatMessages.appendChild(div);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        return div;
+    }
+
+    function appendTyping() {
+        const div = document.createElement('div');
+        div.className = 'chat-bubble typing';
+        div.innerHTML = `<span class="chat-typing-dot"></span><span class="chat-typing-dot"></span><span class="chat-typing-dot"></span>`;
+        chatMessages.appendChild(div);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        return div;
     }
 
 });

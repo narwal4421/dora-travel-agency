@@ -378,5 +378,104 @@ def plan_trip():
         "localGuide": local_guide
     })
 
+@app.route('/api/chat', methods=['POST'])
+@app.route('/chat', methods=['POST'])
+def chat():
+    body = request.json or {}
+    message = body.get('message', '').lower().strip()
+    ctx = body.get('context', {})
+
+    dest = ctx.get('destination', 'your destination')
+    food = ctx.get('food', '')
+    culture = ctx.get('culture', '')
+    safety = ctx.get('safety', '')
+    currency = ctx.get('currency', '')
+    days = ctx.get('days', '')
+
+    # Rule-based intent matching
+    def contains(*keywords):
+        return any(k in message for k in keywords)
+
+    if contains('hello', 'hi', 'hey', 'greet'):
+        reply = f"Hello! I'm your AI companion for your {dest} trip. Ask me about food, culture, safety, currency, packing, or anything else about your journey!"
+
+    elif contains('food', 'eat', 'restaurant', 'cuisine', 'dish', 'drink', 'vegetarian', 'vegan', 'halal'):
+        if food:
+            reply = f"In {dest}, the must-try dishes are: {food} If you're looking for vegetarian or vegan options, search for local plant-based eateries — most destinations have excellent options near tourist areas."
+        else:
+            reply = f"I'd recommend exploring the local street food scene in {dest}. Markets and local eateries are always the best bet for authentic flavours."
+
+    elif contains('culture', 'custom', 'etiquette', 'tradition', 'behavior', 'behave', 'tip', 'tipping'):
+        if culture:
+            reply = f"Cultural notes for {dest}: {culture}"
+        else:
+            reply = f"Always research local customs before visiting {dest}. Showing respect for traditions goes a long way with locals."
+
+    elif contains('safe', 'safety', 'crime', 'dangerous', 'danger', 'scam', 'pickpocket'):
+        if safety:
+            reply = f"Safety tips for {dest}: {safety}"
+        else:
+            reply = f"As with any destination, maintain standard urban awareness in {dest}. Keep valuables close and stay in well-lit areas at night."
+
+    elif contains('currency', 'money', 'cash', 'exchange', 'pay', 'cost', 'price', 'budget', 'cheap', 'expensive'):
+        if currency:
+            reply = f"The local currency in {dest} is: {currency}. I recommend carrying some local cash for markets and smaller establishments, though cards are widely accepted in most tourist areas."
+        else:
+            reply = f"Check the current exchange rate before you travel to {dest}. It's always good to have some local cash on hand."
+
+    elif contains('pack', 'packing', 'luggage', 'bring', 'carry', 'clothes', 'clothing', 'wear'):
+        reply = (f"For {dest}, here's a smart packing checklist:\n"
+                 f"• Passport & travel documents\n"
+                 f"• Universal power adapter\n"
+                 f"• Comfortable walking shoes\n"
+                 f"• Power bank & chargers\n"
+                 f"• Any prescription medication\n"
+                 f"• Weather-appropriate clothing (check the weather widget for current conditions)\n"
+                 f"• A small daypack for excursions")
+
+    elif contains('day', 'itinerary', 'plan', 'schedule', 'activity', 'activities', 'tour', 'visit'):
+        reply = (f"Your {days}-day itinerary for {dest} is already planned in the Itinerary tab. "
+                 f"I'd suggest starting each morning early to beat the crowds at popular sites. "
+                 f"Afternoons are great for local markets, and evenings for dining out. "
+                 f"Would you like tips on a specific type of activity — adventure, history, food, or nightlife?")
+
+    elif contains('weather', 'temperature', 'rain', 'hot', 'cold', 'climate', 'season'):
+        reply = (f"Check the live weather widget at the top of your dashboard for real-time conditions in {dest}. "
+                 f"As a general tip, always pack a light layer regardless of the season — temperatures can surprise you!")
+
+    elif contains('hotel', 'accommodation', 'stay', 'hostel', 'airbnb', 'resort'):
+        reply = (f"Your selected package includes accommodation recommendations for {dest}. "
+                 f"For the best experience, look for hotels in the city centre or near major transit hubs. "
+                 f"Booking in advance (especially for peak season) can save you up to 30%.")
+
+    elif contains('transport', 'taxi', 'uber', 'metro', 'bus', 'train', 'flight', 'airport', 'transit'):
+        reply = (f"For getting around {dest}, I recommend using official taxis or rideshare apps (Uber/Grab where available). "
+                 f"Public metro and bus networks are usually the most affordable option. "
+                 f"Always agree on a price before getting into an unmarked cab.")
+
+    elif contains('visa', 'passport', 'entry', 'immigration', 'requirement'):
+        reply = (f"Visa requirements for {dest} vary by nationality. I strongly recommend checking the official embassy website "
+                 f"of {dest} for your country's entry requirements at least 6-8 weeks before your trip.")
+
+    elif contains('language', 'speak', 'phrase', 'word', 'translate', 'english'):
+        reply = (f"Language tip for {dest}: English is spoken in most tourist areas. "
+                 f"Learning a few basic local phrases (hello, thank you, excuse me, how much?) goes a long way. "
+                 f"Google Translate with offline download is your best travel companion.")
+
+    elif contains('emergency', 'hospital', 'doctor', 'police', 'help', 'ambulance'):
+        reply = (f"In case of emergency in {dest}, always save the local emergency number (usually 112 or 911) and the contact "
+                 f"for your country's embassy. Travel insurance with medical coverage is highly recommended for all international trips.")
+
+    elif contains('thank', 'thanks', 'great', 'awesome', 'perfect', 'good', 'helpful'):
+        reply = f"You're welcome! Enjoy your trip to {dest}. Feel free to ask anything else before you go!"
+
+    else:
+        reply = (f"That's a great question about {dest}! For the most accurate and up-to-date information, "
+                 f"I recommend checking travel resources like Lonely Planet, TripAdvisor, or the official tourism board "
+                 f"for {dest}. Is there anything specific about food, culture, safety, or packing I can help you with?")
+
+    return jsonify({"reply": reply})
+
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
