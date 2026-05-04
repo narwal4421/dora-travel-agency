@@ -1,123 +1,144 @@
-# ✈️ Dora Travel Agency — AI Travel Assistant
+<div align="center">
 
-> **Design your dream trip in seconds.** An intelligent, full-stack travel planning web application powered by real-world APIs, featuring a cinematic 3D globe experience and personalized itinerary generation.
+# Dora Travel Agency
+
+**An intelligent, full-stack travel planning application powered by real-world geospatial APIs and a cinematic 3D globe experience.**
+
+[![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-2.2-000000?style=flat-square&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Three.js](https://img.shields.io/badge/Three.js-Globe.gl-black?style=flat-square&logo=threedotjs&logoColor=white)](https://globe.gl/)
+[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://vercel.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+
+[View Live Demo](#) &nbsp;·&nbsp; [Report a Bug](https://github.com/narwal4421/dora-travel-agency/issues) &nbsp;·&nbsp; [Request a Feature](https://github.com/narwal4421/dora-travel-agency/issues)
+
+</div>
 
 ---
 
-## 🌍 Live Demo
+## Overview
 
-Deploy this project instantly on **[Vercel](https://vercel.com)** (see deployment guide below).
+Dora Travel Agency is a full-stack web application that enables users to generate personalized travel itineraries in seconds. Users input a destination, trip duration, budget tier, and personal interests — the application then orchestrates multiple real-world APIs to produce a complete travel package: live weather data, real tourist attractions sourced from OpenStreetMap, curated cultural guides, and a day-by-day itinerary, all presented through a premium glassmorphism UI with a cinematic 3D globe loading experience.
 
 ---
 
-## ✨ Features
+## Features
 
 | Feature | Description |
 |---|---|
-| 🌐 **Cinematic 3D Globe** | Interactive globe powered by `Three.js` & `Globe.gl` with real-time flight path animations and a dramatic destination zoom |
-| 🤖 **AI Itinerary Generator** | Generates a full day-by-day travel itinerary based on your destination, duration, and special interests |
-| 📦 **3-Tier Travel Packages** | Budget, Medium, and Luxury packages with estimated costs, hotel tier, flight class, and transport options |
-| 🌦️ **Live Weather Widget** | Real-time weather data from Open-Meteo API with smart travel tips based on temperature and conditions |
-| 🗺️ **Local Culture Guide** | Language basics, local currency, signature foods, safety tips, and cultural etiquette for 15+ countries |
-| 🎒 **Smart Packing List** | Auto-generated packing checklist that adapts based on destination weather conditions |
-| 📍 **Real Attraction Data** | Pulls live tourist attractions from **OpenStreetMap Overpass API** based on geocoordinates |
-| 🌓 **Dark / Light Mode** | Seamless theme toggling with a premium glassmorphism UI |
+| **Cinematic 3D Globe** | Interactive globe powered by Three.js and Globe.gl with animated flight paths, destination pin drop, and a dramatic cinematic zoom sequence |
+| **AI Itinerary Generator** | Generates a full day-by-day travel itinerary tailored to destination, trip duration, and user interests |
+| **3-Tier Travel Packages** | Budget, Balanced, and Luxury packages with estimated costs, accommodation tier, flight class, and transport recommendations |
+| **Live Weather Widget** | Real-time weather conditions via Open-Meteo API with contextual travel tips based on temperature and forecast |
+| **Local Culture Guide** | Language essentials, local currency, signature dishes, safety advisories, and cultural etiquette for 15+ countries |
+| **Smart Packing List** | Dynamically generated packing checklist that adapts to destination weather conditions |
+| **Real Attraction Data** | Live tourist attractions queried from OpenStreetMap's Overpass API using destination geocoordinates |
+| **Dark / Light Mode** | Seamless theme switching with a fully responsive, glassmorphism-based design system |
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
-- **HTML5** — Semantic structure
-- **Vanilla CSS** — Custom glassmorphism design system with CSS variables and smooth animations
-- **JavaScript (ES6+)** — Async/Await, DOM manipulation, dynamic rendering
-- **Three.js** + **Globe.gl** — 3D interactive globe with arc animations and location pins
-- **Font Awesome 6** — Icon library
-- **Google Fonts** — *Playfair Display* & *Inter* typography
+
+| Technology | Purpose |
+|---|---|
+| HTML5 | Semantic application structure |
+| Vanilla CSS | Custom design system — CSS variables, glassmorphism, animations |
+| JavaScript (ES6+) | Async data fetching, DOM rendering, application state management |
+| Three.js + Globe.gl | 3D interactive globe with arc animations, rings, and HTML pins |
+| Font Awesome 6 | Icon library |
+| Google Fonts (Playfair Display, Inter) | Premium typography |
 
 ### Backend
-- **Python + Flask** — Lightweight REST API server
-- **Flask-CORS** — Cross-origin request handling
-- **Requests** — HTTP client for external API calls
 
-### External APIs (Free, No Key Required)
-| API | Usage |
+| Technology | Purpose |
 |---|---|
-| [Open-Meteo](https://open-meteo.com/) | Live weather forecasts |
-| [Open-Meteo Geocoding](https://open-meteo.com/en/docs/geocoding-api) | City → Latitude/Longitude lookup |
-| [Overpass API (OpenStreetMap)](https://overpass-api.de/) | Real tourist attractions near destination |
+| Python 3.8+ | Runtime |
+| Flask 2.2 | REST API framework |
+| Flask-CORS | Cross-origin request handling |
+| Requests | HTTP client for external API integration |
+
+### External APIs
+
+| API | Usage | Authentication |
+|---|---|---|
+| [Open-Meteo](https://open-meteo.com/) | Real-time weather forecasts | None required |
+| [Open-Meteo Geocoding](https://open-meteo.com/en/docs/geocoding-api) | City name → latitude/longitude resolution | None required |
+| [Overpass API (OpenStreetMap)](https://overpass-api.de/) | Tourist attractions near destination coordinates | None required |
 
 ### Deployment
-- **Vercel** — Serverless deployment (Python backend via `vercel.json` rewrites)
+
+- **Vercel** — Serverless deployment with Python runtime via `vercel.json` API rewrites
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
-dora travel agency/
-├── index.html          # Main application shell (SPA with two views)
-├── style.css           # Full design system — glassmorphism, animations, themes
-├── script.js           # All frontend logic — globe, API calls, rendering
-├── index.py            # Flask backend — trip planning & weather endpoints
-├── requirements.txt    # Python dependencies
-├── vercel.json         # Vercel serverless routing config
-└── test_overpass.py    # Utility script to test the Overpass API connection
+dora-travel-agency/
+├── index.html           # Single-page application shell (search view + results dashboard)
+├── style.css            # Full design system — theming, glassmorphism, animations, layout
+├── script.js            # Frontend logic — globe orchestration, API calls, UI rendering
+├── index.py             # Flask REST API — /api/plan-trip, /api/weather endpoints
+├── requirements.txt     # Python package dependencies
+├── vercel.json          # Vercel serverless routing configuration
+└── test_overpass.py     # Standalone script to validate Overpass API connectivity
 ```
 
 ---
 
-## 🚀 Getting Started (Local Development)
+## Getting Started
 
 ### Prerequisites
 
-- **Python 3.8+**
-- **pip**
-- A modern web browser
+- Python 3.8 or higher
+- pip
+- A modern web browser (Chrome, Firefox, Edge)
 
-### 1. Clone the Repository
+### Installation
+
+**1. Clone the repository**
 
 ```bash
-git clone <your-repo-url>
-cd "dora travel agency"
+git clone https://github.com/narwal4421/dora-travel-agency.git
+cd dora-travel-agency
 ```
 
-### 2. Install Python Dependencies
+**2. Install Python dependencies**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Run the Backend Server
+**3. Start the backend server**
 
 ```bash
 python index.py
 ```
 
-The Flask API will start at `http://127.0.0.1:5000`.
+The Flask API will be available at `http://127.0.0.1:5000`.
 
-### 4. Open the Frontend
+**4. Open the frontend**
 
-Open `index.html` directly in your browser, or serve it with any static file server:
+Open `index.html` in your browser, or serve it with any static file server:
 
 ```bash
-# Using Python's built-in server (optional)
 python -m http.server 8080
+# Navigate to http://localhost:8080
 ```
 
-Then navigate to `http://localhost:8080`.
-
-> **Note:** The frontend auto-detects `localhost` and routes all API calls to `http://127.0.0.1:5000/api`. No configuration needed.
+> **Note:** The frontend automatically detects `localhost` and routes all API requests to `http://127.0.0.1:5000/api`. No additional configuration is required.
 
 ---
 
-## ☁️ Deployment on Vercel
+## Deployment
 
-This project is configured for **zero-configuration Vercel deployment**.
+This project is preconfigured for **zero-configuration deployment on Vercel**.
 
-1. **Install Vercel CLI** (optional) or use the [Vercel Dashboard](https://vercel.com/new)
-2. **Import your repository** into Vercel
-3. Vercel automatically uses `vercel.json` to route `/api/*` calls to the Python serverless function
+1. Import the repository at [vercel.com/new](https://vercel.com/new)
+2. Vercel automatically detects `vercel.json` and routes `/api/*` requests to the Python serverless function
 
 ```json
 {
@@ -127,17 +148,18 @@ This project is configured for **zero-configuration Vercel deployment**.
 }
 ```
 
-> The Python file must be placed inside an `api/` directory for Vercel's serverless Python runtime. Ensure `index.py` is at `api/index.py` for production deployment.
+> **Important:** For Vercel's Python runtime, the backend entry point must be located at `api/index.py`.
 
 ---
 
-## 🔌 API Endpoints
+## API Reference
 
 ### `POST /api/plan-trip`
 
 Generates a complete travel plan for a given destination.
 
-**Request Body:**
+**Request Body**
+
 ```json
 {
   "destination": "Tokyo",
@@ -149,7 +171,8 @@ Generates a complete travel plan for a given destination.
 }
 ```
 
-**Response:**
+**Response**
+
 ```json
 {
   "destination": "Tokyo",
@@ -158,17 +181,32 @@ Generates a complete travel plan for a given destination.
   "lon": 139.6503,
   "packages": [...],
   "mustVisits": [...],
-  "localGuide": { "culture": "...", "food": "...", "safety": "...", ... }
+  "localGuide": {
+    "culture": "...",
+    "food": "...",
+    "safety": "...",
+    "language": "...",
+    "currency": "..."
+  }
 }
 ```
 
 ---
 
-### `GET /api/weather?dest={city}`
+### `GET /api/weather`
 
-Fetches current weather for a given city name.
+Returns current weather conditions for a given city.
 
-**Response:**
+**Query Parameters**
+
+| Parameter | Type | Description |
+|---|---|---|
+| `dest` | `string` | City name (e.g. `Tokyo`) |
+| `lat` | `float` | Optional — latitude coordinate |
+| `lon` | `float` | Optional — longitude coordinate |
+
+**Response**
+
 ```json
 {
   "temperature": 22,
@@ -179,79 +217,67 @@ Fetches current weather for a given city name.
 
 ---
 
-## 🌐 Supported Destinations (Enhanced Culture Data)
+## Architecture
 
-The backend includes a curated culture database for **15 countries** with rich local intel:
-
-> 🇮🇹 Italy &nbsp;|&nbsp; 🇫🇷 France &nbsp;|&nbsp; 🇯🇵 Japan &nbsp;|&nbsp; 🇹🇷 Turkey &nbsp;|&nbsp; 🇬🇧 United Kingdom &nbsp;|&nbsp; 🇺🇸 United States &nbsp;|&nbsp; 🇹🇭 Thailand &nbsp;|&nbsp; 🇮🇳 India &nbsp;|&nbsp; 🇦🇪 UAE &nbsp;|&nbsp; 🇪🇸 Spain &nbsp;|&nbsp; 🇲🇽 Mexico &nbsp;|&nbsp; 🇬🇷 Greece &nbsp;|&nbsp; 🇩🇪 Germany &nbsp;|&nbsp; 🇪🇬 Egypt &nbsp;|&nbsp; 🇧🇷 Brazil
-
-For all other destinations, the app gracefully falls back to generic, helpful travel advice.
-
----
-
-## 🗺️ How It Works
-
-```mermaid
-sequenceDiagram
-    participant User
-    participant Frontend (JS)
-    participant Flask Backend
-    participant Open-Meteo API
-    participant Overpass API
-
-    User->>Frontend (JS): Submits trip form
-    Frontend (JS)->>Frontend (JS): Launches 3D globe animation
-    Frontend (JS)->>Flask Backend: POST /api/plan-trip
-    Flask Backend->>Open-Meteo API: Geocode destination → lat/lon
-    Flask Backend->>Overpass API: Query tourist attractions near lat/lon
-    Flask Backend-->>Frontend (JS): Returns packages, itinerary, local guide
-    Frontend (JS)->>Flask Backend: GET /api/weather?dest=...
-    Flask Backend->>Open-Meteo API: Fetch current weather
-    Flask Backend-->>Frontend (JS): Returns temp, condition, tips
-    Frontend (JS)->>Frontend (JS): Cinematic globe zoom to destination
-    Frontend (JS)->>User: Renders full results dashboard
+```
+┌─────────────────────────────────────────────────────────┐
+│                        Browser                          │
+│  ┌───────────┐   ┌──────────────┐   ┌───────────────┐  │
+│  │ index.html│   │  script.js   │   │   style.css   │  │
+│  │  (Shell)  │──▶│ (App Logic)  │   │ (Design Sys.) │  │
+│  └───────────┘   └──────┬───────┘   └───────────────┘  │
+│                         │                               │
+│              ┌──────────▼──────────┐                    │
+│              │   Globe.gl / Three  │                    │
+│              │  (3D Visualization) │                    │
+│              └─────────────────────┘                    │
+└──────────────────────┬──────────────────────────────────┘
+                       │ HTTP
+         ┌─────────────▼──────────────┐
+         │      Flask REST API        │
+         │        (index.py)          │
+         └──┬─────────────────────┬───┘
+            │                     │
+  ┌─────────▼────────┐   ┌────────▼────────────────┐
+  │   Open-Meteo     │   │  Overpass API           │
+  │ (Weather + Geo)  │   │  (OpenStreetMap Places) │
+  └──────────────────┘   └─────────────────────────┘
 ```
 
 ---
 
-## 🎨 UI / UX Highlights
+## Supported Destinations (Enhanced Cultural Database)
 
-- **Glassmorphism panels** with `backdrop-filter: blur`
-- **CSS custom properties** for easy theming (dark/light modes)
-- **Smooth fade-in-up animations** for staggered content loading
-- **Cinematic 3D globe sequence**: neural network arcs → destination pin → zoom → reveal
-- **Tabbed dashboard**: Packages, Itinerary timeline, Local Guide, Interactive Map (coming soon)
-- **Responsive layout** with CSS Grid and Flexbox
+The backend includes a curated dataset for 15 countries with rich local information:
 
----
+Italy · France · Japan · Turkey · United Kingdom · United States · Thailand · India · United Arab Emirates · Spain · Mexico · Greece · Germany · Egypt · Brazil
 
-## 🔮 Roadmap (Coming Soon)
-
-- [ ] 📄 **PDF Export** — Download your full itinerary as a styled PDF
-- [ ] 🗺️ **Interactive Map** — Embedded live map with attraction markers and routing
-- [ ] 🏨 **Live Booking** — Deep-link integration with hotel and flight booking partners
-- [ ] 💬 **AI Chat Companion** — Natural language trip refinement via an AI chat interface
-- [ ] 📅 **Calendar Sync** — Export itinerary to Google/Apple Calendar
+For all other destinations, the application falls back to generic contextual travel guidance derived from geocoding data.
 
 ---
 
-## 📄 License
+## Roadmap
 
-This project is open-source and available under the [MIT License](LICENSE).
+- [ ] PDF Export — Downloadable, styled itinerary document
+- [ ] Interactive Map — Embedded live map with attraction markers and routing
+- [ ] Live Booking Integration — Deep-link integration with hotel and flight providers
+- [ ] AI Chat Companion — Natural language trip refinement interface
+- [ ] Calendar Sync — Export itinerary directly to Google or Apple Calendar
 
 ---
 
-## 🙏 Acknowledgements
+## Contributing
 
-- [Globe.gl](https://globe.gl/) — Stunning 3D globe rendering
-- [Open-Meteo](https://open-meteo.com/) — Free, open-source weather API
-- [OpenStreetMap & Overpass API](https://www.openstreetmap.org/) — Community-driven map data
-- [Font Awesome](https://fontawesome.com/) — Icon library
-- [Google Fonts](https://fonts.google.com/) — Typography
+Contributions are welcome. Please open an issue first to discuss any changes you wish to make. Pull requests should target the `main` branch.
+
+---
+
+## License
+
+Distributed under the MIT License. See [`LICENSE`](LICENSE) for details.
 
 ---
 
 <div align="center">
-  <strong>Made with ❤️ by the Dora Travel Agency team</strong><br>
-  <em>Explore the world. Let AI plan the journey.</em>
+  <sub>Built with Flask, Three.js, and open geospatial data.</sub>
 </div>
