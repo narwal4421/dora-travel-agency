@@ -243,10 +243,6 @@ TIMEZONE_DB = {
 }
 
 SCAM_DB = {
-    "Japan": [{"title": "Overpriced Bars", "desc": "Touts in Roppongi/Kabukicho may lure you into bars with 'cheap' drinks but hit you with huge hidden fees."}],
-    "France": [{"title": "The Friendship Bracelet", "desc": "Someone tries to tie a string around your finger in Montmartre and then demands payment."}],
-    "Italy": [{"title": "Helpful Luggage Carriers", "desc": "Random people at stations grab your bags to 'help' and then demand a high tip."}],
-SCAM_DB = {
     "Japan": [{"title": "Overpriced Bars", "desc": "Touts in Kabukicho may lure you with 'cheap' drinks but hit you with massive hidden cover charges."}, {"title": "The Fake Monk", "desc": "People dressed as monks hand you a 'gold' card/bracelet, then aggressively demand a donation."}],
     "France": [{"title": "The Friendship Bracelet", "desc": "Touts in Montmartre try to tie a string around your finger, then demand €20 once you're 'stuck'."}, {"title": "The Petition Scam", "desc": "Groups of teenagers ask you to sign a petition for a fake charity while a partner picks your pocket."}],
     "Italy": [{"title": "Rose Sellers", "desc": "A vendor hands a rose to your partner as a 'gift', then demands payment from you once accepted."}, {"title": "Self-Appointed Porters", "desc": "Touts at train stations grab your bags to 'help' and then refuse to leave without a high tip."}],
