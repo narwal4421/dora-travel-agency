@@ -289,15 +289,6 @@
 
             </div>
         </section>
-
-                <!-- Map Tab -->
-                <div id="tab-map" class="tab-pane">
-                    <div class="map-legend" id="map-legend"></div>
-                    <div id="leaflet-map"></div>
-                </div>
-
-            </div>
-        </section>
     </main>
 
     <!-- AI CHAT SIDEBAR -->
@@ -310,6 +301,12 @@
             <div class="chat-bubble assistant">
                 Hello! I'm your AI trip companion. Ask me anything about your itinerary — want to swap activities, adjust budget, find restaurants, or get packing tips?
             </div>
+        </div>
+        <div class="chat-suggestions" id="chat-suggestions">
+            <button class="suggest-chip" data-msg="What are the must-try dishes?">Food 🍜</button>
+            <button class="suggest-chip" data-msg="Any cultural tips or etiquette?">Culture ⛩️</button>
+            <button class="suggest-chip" data-msg="Is it safe to walk at night?">Safety 🛡️</button>
+            <button class="suggest-chip" data-msg="What should I pack?">Packing 🧳</button>
         </div>
         <div class="chat-input-row">
             <input type="text" id="chat-input" placeholder="e.g. Suggest a vegetarian restaurant..." autocomplete="off">

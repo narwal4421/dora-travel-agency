@@ -324,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Render Travel Intel
         renderTravelIntel(data.intel, data.destination);
-        initCurrencyConverter('USD', data.localGuide.currency);
+        initCurrencyConverter('USD', data.intel.curr_code);
         initAQI(data.lat, data.lon);
 
         _tripData = data;
@@ -399,31 +399,34 @@ document.addEventListener('DOMContentLoaded', () => {
         startTipsCarousel(intel.tips);
     }
 
-    async function initCurrencyConverter(from, toRaw) {
-        // Simple regex to extract ISO code if possible, e.g. "Japanese Yen (¥)" -> "JPY" is hard, 
-        // so we'll look for keywords or use a fallback.
+    async function initCurrencyConverter(from, toISO) {
         const currTo = document.getElementById('curr-to-sym');
         const currVal = document.getElementById('curr-to-val');
         const amountInput = document.getElementById('curr-amount');
         
-        // Map common names to ISO codes
-        const currMap = { "Yen": "JPY", "Euro": "EUR", "Pound": "GBP", "Rupee": "INR", "Baht": "THB", "Dollar": "USD", "Peso": "MXN", "Real": "BRL", "Franc": "CHF" };
-        let toISO = "EUR"; // default
-        for (const [name, code] of Object.entries(currMap)) {
-            if (toRaw.includes(name)) { toISO = code; break; }
-        }
-        
-        document.getElementById('curr-from').textContent = "USD";
+        document.getElementById('curr-from').textContent = from;
         currTo.textContent = toISO;
 
         async function updateRate() {
+            if (!toISO || toISO === "USD") {
+                currVal.textContent = amountInput.value;
+                return;
+            }
             try {
-                const res = await fetch(`https://api.frankfurter.app/latest?amount=${amountInput.value}&from=USD&to=${toISO}`);
+                const res = await fetch(`https://api.frankfurter.app/latest?amount=${amountInput.value}&from=${from}&to=${toISO}`);
                 const data = await res.json();
-                currVal.textContent = data.rates[toISO].toFixed(2);
-            } catch(e) { currVal.textContent = "??"; }
+                if (data.rates && data.rates[toISO]) {
+                    currVal.textContent = data.rates[toISO].toFixed(2);
+                } else {
+                    currVal.textContent = "??";
+                }
+            } catch(e) { 
+                console.error("Currency conversion error:", e);
+                currVal.textContent = "??"; 
+            }
         }
 
+        amountInput.removeEventListener('input', updateRate); // prevent duplicates
         amountInput.addEventListener('input', updateRate);
         updateRate();
     }
@@ -675,13 +678,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({ message: msg, context })
             });
             const json = await res.json();
-            typingEl.remove();
-            appendBubble(json.reply || 'I could not process that. Please try again.', 'assistant');
+            
+            // Add a small delay for "thinking" feel
+            setTimeout(() => {
+                typingEl.remove();
+                appendBubble(json.reply || 'I could not process that. Please try again.', 'assistant');
+            }, 800);
         } catch(e) {
             typingEl.remove();
             appendBubble('Sorry, the AI assistant is currently unavailable. Please ensure the backend server is running.', 'assistant');
         }
     }
+
+    // Handle Suggestions
+    document.querySelectorAll('.suggest-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+            const msg = chip.getAttribute('data-msg');
+            chatInput.value = msg;
+            sendChat();
+        });
+    });
 
     function appendBubble(text, role) {
         const div = document.createElement('div');

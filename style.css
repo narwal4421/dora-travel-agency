@@ -823,6 +823,32 @@ input:focus, select:focus {
     30% { transform: translateY(-6px); }
 }
 
+.chat-suggestions {
+    padding: 0 1.5rem 1rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    flex-shrink: 0;
+}
+
+.suggest-chip {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.suggest-chip:hover {
+    border-color: var(--accent-gold);
+    color: var(--text-primary);
+    background: rgba(212, 175, 55, 0.05);
+}
+
 .chat-input-row {
     display: flex;
     gap: 0;

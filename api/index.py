@@ -8,63 +8,58 @@ CORS(app)
 
 CULTURE_DB = {
     # North America
-    "United States": {"food": "Burgers, BBQ Ribs, clam chowder, and regional specialties", "culture": "Tipping (15-20%) is mandatory. Portions are large.", "safety": "Varies by neighborhood; use standard urban awareness.", "mult": 1.8, "language": "English", "currency": "US Dollar ($)"},
-    "Canada": {"food": "Poutine, Maple Syrup treats, Salmon", "culture": "Canadians are famous for politeness. Tipping (15-20%) is standard.", "safety": "Generally very safe. Watch for extreme winter weather.", "mult": 1.5, "language": "English, French (Quebec)", "currency": "Canadian Dollar (CAD)"},
-    "Mexico": {"food": "Street Tacos, Mole, Chilaquiles, Ceviche", "culture": "Warm and festive. Learning a bit of Spanish goes a long way.", "safety": "Stick to tourist zones and use registered taxis.", "mult": 0.7, "language": "Spanish • Hello: Hola • Thanks: Gracias", "currency": "Mexican Peso ($)"},
+    "United States": {"food": "Regional BBQ (Texas/Carolina), Clam Chowder (New England), and Artisanal Burgers", "culture": "Tipping (18-25%) is a non-negotiable social contract. Be prepared for large portions and enthusiastic service.", "safety": "Generally safe, but research specific urban neighborhoods. Use ride-hails late at night in big cities.", "mult": 1.8, "language": "English", "currency": "US Dollar ($)", "curr_code": "USD"},
+    "Canada": {"food": "Quebecois Poutine, Nanaimo Bars, and fresh Pacific Salmon", "culture": "Punctuality and politeness are highly valued. Tipping 15-20% is the standard in service industries.", "safety": "Very safe. Nature is the biggest risk; check weather for blizzards or wildlife in parks.", "mult": 1.5, "language": "English & French", "currency": "Canadian Dollar (CAD)", "curr_code": "CAD"},
+    "Mexico": {"food": "Al Pastor Tacos, Oaxacan Mole, and fresh Aguachile", "culture": "Family-centric and vibrant. 'Mañana' reflects a relaxed pace—don't expect strict timing in social settings.", "safety": "Stick to toll roads (cuotas) and tourist zones. Only use authorized 'Sitio' taxis.", "mult": 0.7, "language": "Spanish • Hello: Hola • Thanks: Gracias", "currency": "Mexican Peso ($)", "curr_code": "MXN"},
     
     # Europe
-    "Italy": {"food": "Pasta Carbonara, Neapolitan Pizza, Gelato", "culture": "Greet with 'Buongiorno'. Dinner is usually late (8PM+). Dress smartly.", "safety": "Beware of pickpockets in crowded tourist spots.", "mult": 1.5, "language": "Italian • Hello: Buongiorno • Thanks: Grazie", "currency": "Euro (€)"},
-    "France": {"food": "Croissants, Escargot, Boeuf Bourguignon", "culture": "Always say 'Bonjour' when entering a shop.", "safety": "Watch for petty theft around major landmarks.", "mult": 1.6, "language": "French • Hello: Bonjour • Thanks: Merci", "currency": "Euro (€)"},
-    "United Kingdom": {"food": "Fish and Chips, Sunday Roast, Full English", "culture": "Queuing is practically a religion. Stand on the right on escalators.", "safety": "Safe, but look both ways before crossing (cars drive on left).", "mult": 1.7, "language": "English", "currency": "British Pound (£)"},
-    "Spain": {"food": "Tapas, Paella, Churros con Chocolate", "culture": "Siesta is real; shops may close mid-day. Dinner happens after 9 PM.", "safety": "Beware of pickpockets in major cities.", "mult": 1.3, "language": "Spanish • Hello: Hola • Thanks: Gracias", "currency": "Euro (€)"},
-    "Germany": {"food": "Bratwurst, Pretzels, Schnitzel", "culture": "Punctuality is essential. Toast with 'Prost' and make eye contact.", "safety": "Highly safe infrastructure. Observe pedestrian lights.", "mult": 1.4, "language": "German • Hello: Hallo • Thanks: Danke", "currency": "Euro (€)"},
-    "Greece": {"food": "Moussaka, Souvlaki, fresh Greek Salad", "culture": "Pace of life is relaxed. Hospitality is very important.", "safety": "Very safe. Be cautious on roads if renting a scooter.", "mult": 1.1, "language": "Greek • Hello: Yassou • Thanks: Efharisto", "currency": "Euro (€)"},
-    "Portugal": {"food": "Bacalhau, Pastel de Nata, Francesinha", "culture": "Laid back and friendly. Dinner is generally after 8 PM.", "safety": "Extremely safe country, standard precautions apply.", "mult": 0.9, "language": "Portuguese • Hello: Olá • Thanks: Obrigado", "currency": "Euro (€)"},
-    "Switzerland": {"food": "Fondue, Raclette, Swiss Chocolate", "culture": "Very punctual. Sundays are strict rest days (shops closed).", "safety": "One of the safest countries in the world.", "mult": 2.2, "language": "German/French/Italian • Hello: Grüezi", "currency": "Swiss Franc (CHF)"},
-    "Netherlands": {"food": "Stroopwafel, Bitterballen, Herring", "culture": "Very direct communication. Cycling is the primary transport.", "safety": "Very safe. Watch out for cyclists in bike lanes!", "mult": 1.4, "language": "Dutch • Hello: Hallo • Thanks: Dank je", "currency": "Euro (€)"},
-    "Ireland": {"food": "Irish Stew, Boxty, Guinness bread", "culture": "Pub culture is central. 'Craic' means fun/conversation.", "safety": "Very safe. Weather changes rapidly, so layer up.", "mult": 1.4, "language": "English, Irish", "currency": "Euro (€)"},
+    "Italy": {"food": "Authentic Carbonara (no cream!), Neapolitan Pizza, and Artisanal Gelato", "culture": "Cappuccino is strictly for mornings. Dinner is a slow, multi-course affair starting after 8 PM.", "safety": "High pickpocket risk in Rome/Venice; keep valuables in a front pocket or cross-body bag.", "mult": 1.5, "language": "Italian • Hello: Buongiorno • Thanks: Grazie", "currency": "Euro (€)", "curr_code": "EUR"},
+    "France": {"food": "Buttery Croissants, Coq au Vin, and regional cheeses (Brie, Roquefort)", "culture": "The 'Bonjour' rule: Always greet staff when entering a shop or you'll be seen as rude. Dress is 'effortless chic'.", "safety": "Watch for the 'string' or 'petition' scams near major Parisian landmarks.", "mult": 1.6, "language": "French • Hello: Bonjour • Thanks: Merci", "currency": "Euro (€)", "curr_code": "EUR"},
+    "United Kingdom": {"food": "Proper Fish & Chips, Sunday Roast with Yorkshire Pudding, and Afternoon Tea", "culture": "Queuing is sacred. 'Sorry' is used for everything. In pubs, order at the bar; there is no table service.", "safety": "Safe, but remember to 'Look Right'—traffic flows on the left. Watch for rowdy crowds after matches.", "mult": 1.7, "language": "English", "currency": "British Pound (£)", "curr_code": "GBP"},
+    "Spain": {"food": "Iberian Ham, Seafood Paella, and various regional Tapas", "culture": "The 'Siesta' is real—many shops close from 2-5 PM. Life happens late; lunch at 2 PM, dinner at 10 PM.", "safety": "Major pickpocket hotspots in Barcelona (Las Ramblas). Use hotel safes for passports.", "mult": 1.3, "language": "Spanish • Hello: Hola • Thanks: Gracias", "currency": "Euro (€)", "curr_code": "EUR"},
+    "Germany": {"food": "Currywurst, Soft Pretzels, and various regional Schnitzels", "culture": "Direct communication is valued. Always make eye contact during a toast ('Prost') or it's '7 years of bad luck'.", "safety": "Very safe. Follow 'The Rules'—don't jaywalk, even if no cars are coming.", "mult": 1.4, "language": "German • Hello: Hallo • Thanks: Danke", "currency": "Euro (€)", "curr_code": "EUR"},
+    "Greece": {"food": "Moussaka, Grilled Octopus, and authentic Feta-topped Greek Salads", "culture": "Hospitality ('Philoxenia') is deep-rooted. Expect a relaxed 'Island Time' pace. Don't flush toilet paper.", "safety": "Very safe, though driving can be chaotic. Be cautious on moped rentals.", "mult": 1.1, "language": "Greek • Hello: Yassou • Thanks: Efharisto", "currency": "Euro (€)", "curr_code": "EUR"},
+    "Portugal": {"food": "Bacalhau, Pastel de Nata, and fresh Sardines", "culture": "Laid back and friendly. 'Saudade' (melancholy) is a key cultural concept. Dinner is generally after 8 PM.", "safety": "Extremely safe country. Be cautious of 'helpful' strangers in nightlife districts.", "mult": 0.9, "language": "Portuguese • Hello: Olá • Thanks: Obrigado", "currency": "Euro (€)", "curr_code": "EUR"},
+    "Switzerland": {"food": "Cheese Fondue, Crispy Rösti, and premium Swiss Chocolate", "culture": "Quiet hours are strictly enforced (especially Sundays). Efficiency is the national pride.", "safety": "Statistically one of the safest places on earth. Nature (hiking/skiing) is the only real hazard.", "mult": 2.2, "language": "German/French/Italian • Hello: Grüezi", "currency": "Swiss Franc (CHF)", "curr_code": "CHF"},
+    "Netherlands": {"food": "Stroopwafels, Bitterballen, and Raw Herring", "culture": "Radical honesty and directness. Cycling is the primary mode of transport—never walk in the bike lanes.", "safety": "Very safe. Watch for professional pickpockets on trains and in the Red Light District.", "mult": 1.4, "language": "Dutch • Hello: Hallo • Thanks: Dank je", "currency": "Euro (€)", "curr_code": "EUR"},
+    "Ireland": {"food": "Irish Stew, Fresh Oysters, and Soda Bread", "culture": "Pubs are the social hub. 'The Craic' (fun/chat) is essential. Avoid talking about sensitive political history.", "safety": "Very safe. The weather is the biggest unpredictability—always carry a rain shell.", "mult": 1.4, "language": "English & Irish", "currency": "Euro (€)", "curr_code": "EUR"},
     
     # Asia
-    "Japan": {"food": "Fresh Sushi, Ramen bowls, Takoyaki", "culture": "Bowing is the standard greeting. Tipping is considered rude.", "safety": "Extremely safe, but observe etiquette on public transit.", "mult": 1.8, "language": "Japanese • Hello: Konnichiwa • Thanks: Arigatou", "currency": "Japanese Yen (¥)"},
-    "Thailand": {"food": "Pad Thai, Green Curry, Mango Sticky Rice", "culture": "Do not touch people's heads. Respect the royal family.", "safety": "Watch out for tuk-tuk scams and drink bottled water.", "mult": 0.6, "language": "Thai • Hello: Sawasdee • Thanks: Khop Khun", "currency": "Thai Baht (฿)"},
-    "India": {"food": "Butter Chicken, Masala Dosa, Biryani", "culture": "Use your right hand for eating and giving/receiving.", "safety": "Drink only bottled water. Negotiate fare for rickshaws.", "mult": 0.5, "language": "Hindi / English • Hello: Namaste • Thanks: Dhanyavad", "currency": "Indian Rupee (₹)"},
-    "China": {"food": "Peking Duck, Dim Sum, Hot Pot", "culture": "Respect for elders is paramount. Bring cash or use WeChat Pay.", "safety": "Low street crime. Internet requires a VPN.", "mult": 1.0, "language": "Mandarin • Hello: Nǐ hǎo • Thanks: Xièxiè", "currency": "Chinese Yuan (CNY)"},
-    "South Korea": {"food": "Kimchi, Korean BBQ, Bibimbap", "culture": "Use two hands when giving/receiving items. Bow to greet.", "safety": "Extremely safe with fantastic public transit.", "mult": 1.3, "language": "Korean • Hello: Annyeonghaseyo • Thanks: Gamsahamnida", "currency": "South Korean Won (KRW)"},
-    "Vietnam": {"food": "Pho, Banh Mi, Fresh Spring Rolls", "culture": "Modest dress for temples. Haggling is common in markets.", "safety": "Traffic is chaotic; walk confidently across streets.", "mult": 0.4, "language": "Vietnamese • Hello: Xin chào", "currency": "Vietnamese Dong (VND)"},
-    "Indonesia": {"food": "Nasi Goreng, Satay, Beef Rendang", "culture": "Predominantly Muslim (except Bali). Dress modestly.", "safety": "Beware of chaotic traffic. Drink bottled water.", "mult": 0.5, "language": "Indonesian • Hello: Halo • Thanks: Terima kasih", "currency": "Indonesian Rupiah (IDR)"},
+    "Japan": {"food": "Sushi Omakase, Rich Tonkotsu Ramen, and Wagyu Beef", "culture": "A culture of silence and respect. No eating while walking. Tipping is offensive; service is included.", "safety": "Extraordinarily safe. You can leave your bag to save a seat, but always remain polite.", "mult": 1.8, "language": "Japanese • Hello: Konnichiwa • Thanks: Arigatou", "currency": "Japanese Yen (¥)", "curr_code": "JPY"},
+    "Thailand": {"food": "Spicy Som Tum, Pad Thai, and Mango Sticky Rice", "culture": "The 'Land of Smiles'. Never point your feet at people or touch anyone's head. Dress modestly for temples.", "safety": "Avoid 'Gem' or 'Closed Palace' scams. Drink only bottled or filtered water.", "mult": 0.6, "language": "Thai • Hello: Sawasdee • Thanks: Khop Khun", "currency": "Thai Baht (฿)", "curr_code": "THB"},
+    "India": {"food": "Butter Chicken, regional Thalis, and street-style Chaat", "culture": "Use only your right hand for eating and transactions. Remove shoes before entering any home or temple.", "safety": "Only drink 'sealed' bottled water. Negotiate all rickshaw fares before the journey starts.", "mult": 0.5, "language": "Hindi / English • Hello: Namaste", "currency": "Indian Rupee (₹)", "curr_code": "INR"},
+    "China": {"food": "Peking Duck, Dim Sum, and Sichuan Hot Pot", "culture": "Personal space is smaller than in the West. Bargaining is expected in markets. Use apps for everything.", "safety": "Very low street crime. Be aware of the 'Tea Ceremony' scam in tourist areas.", "mult": 1.0, "language": "Mandarin • Hello: Nǐ hǎo • Thanks: Xièxiè", "currency": "Chinese Yuan (CNY)", "curr_code": "CNY"},
+    "South Korea": {"food": "Korean BBQ, Spicy Kimchi Stew, and Fried Chicken", "culture": "Respect for elders is paramount. Use two hands when giving or receiving anything. Silence on subways.", "safety": "Extremely safe. Great public Wi-Fi everywhere. Keep your ID/Passport on you as required.", "mult": 1.3, "language": "Korean • Hello: Annyeonghaseyo", "currency": "South Korean Won (KRW)", "curr_code": "KRW"},
+    "Vietnam": {"food": "Pho, Banh Mi, and Fresh Spring Rolls", "culture": "Respect for family and history. Remove shoes in homes. Be patient—things move at their own pace here.", "safety": "Traffic is chaotic; walk slowly and steadily across the street. Don't carry bags loosely on bikes.", "mult": 0.4, "language": "Vietnamese • Hello: Xin chào", "currency": "Vietnamese Dong (VND)", "curr_code": "VND"},
+    "Indonesia": {"food": "Nasi Goreng, Satay, and Beef Rendang", "culture": "Diverse and religious. Dress modestly in rural areas. Use your right hand for greetings.", "safety": "Traffic is very dense. Watch for volcano/seismic activity updates in certain regions.", "mult": 0.5, "language": "Indonesian • Hello: Halo • Thanks: Terima kasih", "currency": "Indonesian Rupiah (IDR)", "curr_code": "IDR"},
     
     # Middle East & Africa
-    "Turkey": {"food": "Iskender Kebab, Baklava, Turkish Delight", "culture": "Bargaining is common in bazaars. Accept tea if offered.", "safety": "Generally safe. Use marked taxis.", "mult": 0.8, "language": "Turkish • Hello: Merhaba • Thanks: Teşekkürler", "currency": "Turkish Lira (₺)"},
-    "United Arab Emirates": {"food": "Shawarma, Machboos, Falafel", "culture": "Dress modestly in public. Public displays of affection are illegal.", "safety": "Extremely safe with strict laws.", "mult": 1.6, "language": "Arabic • Hello: Marhaba • Thanks: Shukran", "currency": "UAE Dirham (AED)"},
-    "Egypt": {"food": "Koshari, Ful Medames, Shawarma", "culture": "Dress conservatively. Bargaining is expected.", "safety": "Stay hydrated. Cross bustling streets confidently.", "mult": 0.6, "language": "Arabic • Hello: Marhaba • Thanks: Shukran", "currency": "Egyptian Pound (E£)"},
-    "Morocco": {"food": "Tagine, Couscous, Mint Tea", "culture": "Use right hand for eating. Tipping a few dirhams is standard.", "safety": "Beware of persistent vendors or fake guides.", "mult": 0.6, "language": "Arabic/French • Hello: Salam", "currency": "Moroccan Dirham (MAD)"},
-    "South Africa": {"food": "Braai (BBQ), Biltong, Bobotie", "culture": "Casual and friendly. Tipping 10-15% is standard.", "safety": "Stay aware of your surroundings, avoid walking at night.", "mult": 0.8, "language": "English, Zulu, Xhosa...", "currency": "South African Rand (ZAR)"},
+    "Turkey": {"food": "Iskender Kebab, Baklava with Pistachios, and Turkish Meze", "culture": "Bargaining in the Grand Bazaar is expected. Always accept tea—it's a sign of hospitality, not a sales pitch.", "safety": "Use only official yellow taxis with meters. Be wary of the 'brushed dropped' or 'overpriced bar' scams.", "mult": 0.8, "language": "Turkish • Hello: Merhaba • Thanks: Teşekkürler", "currency": "Turkish Lira (₺)", "curr_code": "TRY"},
+    "United Arab Emirates": {"food": "Al Machboos, Luqaimat (sweet dumplings), and Camel Sliders", "culture": "A blend of ultra-modern and deeply traditional. Dress modestly in malls and public spaces. Public displays of affection are discouraged.", "safety": "One of the safest countries globally. Strict laws mean crime is very low, but follow all local regulations closely.", "mult": 1.6, "language": "Arabic & English • Hello: Marhaba", "currency": "UAE Dirham (AED)", "curr_code": "AED"},
+    "Egypt": {"food": "Koshari, Ful Medames, and Grilled Squab", "culture": "Bargaining is a way of life. Tipping ('Baksheesh') is expected for even small services. Dress conservatively.", "safety": "Always stay hydrated. Cross the chaotic Cairo streets by walking at a steady, predictable pace.", "mult": 0.6, "language": "Arabic • Hello: Marhaba • Thanks: Shukran", "currency": "Egyptian Pound (E£)", "curr_code": "EGP"},
+    "Morocco": {"food": "Slow-cooked Tagine, Fluffy Couscous, and Mint Tea", "culture": "The 'Right Hand' rule is essential for eating and greetings. If offered tea, it is polite to drink at least one cup.", "safety": "Expect persistent 'guides' in the Medinas. A firm 'No, thank you' and continued walking is the best approach.", "mult": 0.6, "language": "Arabic & French • Hello: Salam", "currency": "Moroccan Dirham (MAD)", "curr_code": "MAD"},
+    "South Africa": {"food": "Braai (BBQ) feast, Biltong (dried meat), and Malva Pudding", "culture": "Casual, outdoor-focused, and friendly. Tipping 10-15% is the local standard. Respect the complex history.", "safety": "Stay in well-lit, populated areas. Use Uber rather than walking at night. Keep valuables out of sight in cars.", "mult": 0.8, "language": "English, Zulu, Xhosa...", "currency": "South African Rand (ZAR)", "curr_code": "ZAR"},
+    "Kenya": {"food": "Nyama Choma (Roasted goat), Ugali, and Sukuma Wiki", "culture": "Very warm and communal. 'Harambee' (pulling together) is a core philosophy. Respect wildlife and local tribes.", "safety": "Stick to guided safaris. In Nairobi, be vigilant of your belongings in crowded markets.", "mult": 0.7, "language": "Swahili & English • Hello: Jambo", "currency": "Kenyan Shilling (KSh)", "curr_code": "KES"},
     
     # South America & Oceania
-    "Brazil": {"food": "Feijoada, Pão de Queijo, Churrasco", "culture": "Very warm and affectionate people. Thumbs up is common.", "safety": "Keep phones out of sight in crowded urban areas.", "mult": 0.9, "language": "Portuguese • Hello: Olá • Thanks: Obrigado/a", "currency": "Brazilian Real (R$)"},
-    "Argentina": {"food": "Asado, Empanadas, Alfajores", "culture": "Dinner is very late (10 PM). Mate (tea) sharing is common.", "safety": "Watch for pickpockets in Buenos Aires.", "mult": 0.7, "language": "Spanish • Hello: Hola", "currency": "Argentine Peso ($)"},
-    "Peru": {"food": "Ceviche, Lomo Saltado, Cuy", "culture": "Very proud of their Incan heritage. Altitude acclimation needed.", "safety": "Use registered taxis. Drink bottled water.", "mult": 0.6, "language": "Spanish • Hello: Hola", "currency": "Peruvian Sol (PEN)"},
-    "Australia": {"food": "Meat Pies, Vegemite on Toast, Tim Tams", "culture": "Very laid-back ('No worries'). Strong coffee culture.", "safety": "Sun is extremely harsh (wear SPF). Swim between the flags.", "mult": 1.6, "language": "English", "currency": "Australian Dollar (AUD)"},
-    "New Zealand": {"food": "Hangi, Fish and Chips, Pavlova", "culture": "Very eco-conscious. Māori culture is highly respected.", "safety": "Extremely safe. Weather can change rapidly.", "mult": 1.5, "language": "English, Māori", "currency": "New Zealand Dollar (NZD)"},
-    "Singapore": {"food": "Hainanese Chicken Rice, Chili Crab, Laksa", "culture": "Efficiency-driven and extremely orderly. Respect for laws is paramount.", "safety": "One of the safest cities in the world. Strict on littering.", "mult": 1.6, "language": "English, Mandarin, Malay, Tamil", "currency": "Singapore Dollar (SGD)"},
-    "Malaysia": {"food": "Nasi Lemak, Satay, Roti Canai", "culture": "Multi-ethnic and religious. Dress modestly in rural areas.", "safety": "Generally safe. Use ride-hailing apps like Grab.", "mult": 0.6, "language": "Malay, English", "currency": "Malaysian Ringgit (MYR)"},
-    "Philippines": {"food": "Adobo, Sinigang, Lechon", "culture": "Very hospitable and music-loving. Respect for elders (Mano Po).", "safety": "Stick to tourist hubs. Use official transport.", "mult": 0.5, "language": "Filipino, English", "currency": "Philippine Peso (PHP)"},
-    "Israel": {"food": "Hummus, Falafel, Shakshuka", "culture": "Direct communication. Shabbat (Friday sunset to Saturday sunset) is a rest day.", "safety": "High security awareness. Follow local guidelines.", "mult": 1.4, "language": "Hebrew, Arabic", "currency": "Israeli Shekel (ILS)"},
-    "Norway": {"food": "Smoked Salmon, Brown Cheese, Reindeer meat", "culture": "Love for the outdoors (Friluftsliv). Very egalitarian and reserved.", "safety": "Extremely safe. Nature is the biggest hazard; dress for the cold.", "mult": 2.1, "language": "Norwegian • Hello: Hallo", "currency": "Norwegian Krone (NOK)"},
-    "Sweden": {"food": "Meatballs with Lingonberries, Gravlax, Fika (coffee break)", "culture": "Value for consensus and equality (Lagom). Fika is a daily ritual.", "safety": "Very safe. Observe recycling rules and avoid being loud in public.", "mult": 1.7, "language": "Swedish • Hello: Hej", "currency": "Swedish Krona (SEK)"},
-    "Denmark": {"food": "Smørrebrød (open sandwiches), Danish pastries, Hot Dogs", "culture": "Focused on coziness and well-being (Hygge). Cycling is life.", "safety": "Extremely safe. Use bike lanes and follow traffic signals strictly.", "mult": 1.8, "language": "Danish • Hello: Hej", "currency": "Danish Krone (DKK)"},
-    "Poland": {"food": "Pierogi, Kielbasa, Bigos (Hunter's Stew)", "culture": "Hospitality and history are key. Poles are proud of their heritage.", "safety": "Generally very safe. Watch for traffic and crosswalk rules.", "mult": 0.8, "language": "Polish • Hello: Cześć", "currency": "Polish Złoty (PLN)"},
-    "Czech Republic": {"food": "Goulash, Svíčková, Fried Cheese, World-class beer", "culture": "Appreciation for arts and history. Tipping (10%) is standard.", "safety": "Safe, but watch for pickpockets in Prague's Old Town.", "mult": 0.9, "language": "Czech • Hello: Ahoj", "currency": "Czech Koruna (CZK)"},
-    "Hungary": {"food": "Goulash, Lángos, Dobos Tort (Cake)", "culture": "Rich bathing culture (thermal baths). High regard for music and wine.", "safety": "Safe. Use official taxis and check prices in tourist restaurants.", "mult": 0.7, "language": "Hungarian • Hello: Szia", "currency": "Hungarian Forint (HUF)"},
-    "Austria": {"food": "Wiener Schnitzel, Sachertorte, Apple Strudel", "culture": "Polite and formal. Respect for classical music and mountain traditions.", "safety": "Extremely safe. Be careful during mountain activities.", "mult": 1.5, "language": "German • Hello: Servus", "currency": "Euro (€)"},
-    "Argentina": {"food": "Asado (BBQ), Empanadas, Alfajores", "culture": "Passionate about football and tango. Dinner is very late (9PM+).", "safety": "Standard urban awareness. Stick to well-lit areas in Buenos Aires.", "mult": 0.8, "language": "Spanish • Hello: Hola", "currency": "Argentine Peso ($)"},
-    "Chile": {"food": "Pastel de Choclo, Empanadas de Pino, Ceviche", "culture": "Polite and focused on community. National pride in poets like Neruda.", "safety": "Safe, but be cautious of earthquakes and pickpockets in Santiago.", "mult": 1.0, "language": "Spanish • Hello: Hola", "currency": "Chilean Peso ($)"},
-    "Peru": {"food": "Ceviche, Lomo Saltado, Cuy (Guinea Pig)", "culture": "Proud Incan heritage. Respect for the Earth (Pachamama).", "safety": "Use registered taxis. Altitude sickness is common in the Andes.", "mult": 0.7, "language": "Spanish • Hello: Hola", "currency": "Peruvian Sol (S/.)"},
-    "Colombia": {"food": "Bandeja Paisa, Arepas, Ajiaco", "culture": "Extremely warm and musical. Value for family and resilience.", "safety": "Major improvements. Stick to tourist areas; avoid 'no-go' zones.", "mult": 0.7, "language": "Spanish • Hello: Hola", "currency": "Colombian Peso ($)"},
-    "Morocco": {"food": "Tagine, Couscous, Harira soup", "culture": "Hospitality involves mint tea. Modest dress is required in many areas.", "safety": "Safe, but beware of aggressive vendors in the souks.", "mult": 0.6, "language": "Arabic, French • Hello: Salam", "currency": "Moroccan Dirham (MAD)"},
-    "Kenya": {"food": "Ugali, Nyama Choma (Roasted meat), Pilau", "culture": "Warm and diverse. Respect for wildlife and tribal traditions.", "safety": "Stick to guided safaris and safe neighborhoods in Nairobi.", "mult": 0.7, "language": "Swahili, English • Hello: Jambo", "currency": "Kenyan Shilling (KSh)"},
-    "Taiwan": {"food": "Beef Noodle Soup, Bubble Tea, Xiaolongbao", "culture": "Extremely polite and hospitable. High respect for temples and elders.", "safety": "Extremely safe even at night. Great public transit.", "mult": 1.2, "language": "Mandarin • Hello: Nǐ hǎo", "currency": "New Taiwan Dollar (TWD)"},
-    "Saudi Arabia": {"food": "Kabsa, Mandi, Arabic Coffee & Dates", "culture": "Conservative and deeply religious. Respect for Islamic laws is mandatory.", "safety": "Very safe. Be mindful of strict cultural codes and prayer times.", "mult": 1.5, "language": "Arabic • Hello: Marhaba", "currency": "Saudi Riyal (SAR)"}
+    "Brazil": {"food": "Feijoada (bean stew), Pão de Queijo, and Acai bowls", "culture": "Expressive and warm. Physical contact (hugs/kisses) is common in greetings. Thumbs up is used for almost everything.", "safety": "Leave expensive jewelry at home. Keep your phone in your pocket while walking in busy city centers.", "mult": 0.9, "language": "Portuguese • Hello: Olá • Thanks: Obrigado", "currency": "Brazilian Real (R$)", "curr_code": "BRL"},
+    "Argentina": {"food": "Prime Grass-fed Asado, Empanadas, and Dulce de Leche", "culture": "Passionate about football, politics, and tango. Dinner is extremely late—restaurants are empty before 9 PM.", "safety": "Watch for 'the mustard scam' in Buenos Aires. Carry some cash as smaller shops may not take cards.", "mult": 0.7, "language": "Spanish • Hello: Hola", "currency": "Argentine Peso ($)", "curr_code": "ARS"},
+    "Peru": {"food": "Classic Ceviche, Lomo Saltado, and Roasted Cuy", "culture": "Deeply proud of Incan heritage. Respect the 'Pachamama' (Mother Earth). Altitude sickness is a real factor in the Andes.", "safety": "Use only 'App-based' or 'Hotel-called' taxis. Drink only bottled water, even in high-end hotels.", "mult": 0.6, "language": "Spanish • Hello: Hola", "currency": "Peruvian Sol (S/.)", "curr_code": "PEN"},
+    "Colombia": {"food": "Bandeja Paisa, Arepas, and world-class Coffee", "culture": "Resilient, musical, and incredibly hospitable. Don't mention the 'Pablo' era—locals find it offensive and outdated.", "safety": "Major improvements in safety, but stick to established tourist hubs. Avoid 'giving papaya' (showing off wealth).", "mult": 0.7, "language": "Spanish • Hello: Hola", "currency": "Colombian Peso ($)", "curr_code": "COP"},
+    "Australia": {"food": "Meat Pies, Barramundi, and Smashed Avocado on Toast", "culture": "Loud, friendly, and informal. 'No worries' is the national motto. Strong coffee culture is a way of life.", "safety": "The sun is lethal; wear SPF 50+. Only swim between the red and yellow flags at beaches.", "mult": 1.6, "language": "English", "currency": "Australian Dollar (AUD)", "curr_code": "AUD"},
+    "New Zealand": {"food": "Hangi (earth oven) feast, Lamb, and Hokey Pokey Ice Cream", "culture": "High respect for Māori traditions. Extremely eco-conscious; follow 'Leave No Trace' principles strictly.", "safety": "Very safe. The weather is the biggest danger in the outdoors; check mountain forecasts religiously.", "mult": 1.5, "language": "English & Māori", "currency": "New Zealand Dollar (NZD)", "curr_code": "NZD"},
+    
+    # Additional Europe & Asia
+    "Singapore": {"food": "Hainanese Chicken Rice, Chili Crab, and Laksa", "culture": "A hyper-efficient 'Fine City'. Rules are followed strictly. Tipping is not expected as a 10% service charge is added.", "safety": "One of the safest places on earth. You can leave your phone on a table to 'chope' (reserve) it without worry.", "mult": 1.6, "language": "English, Mandarin, Malay, Tamil", "currency": "Singapore Dollar (SGD)", "curr_code": "SGD"},
+    "Norway": {"food": "Smoked Salmon, Brown Cheese (Brunost), and Reindeer", "culture": "Equality and the outdoors are sacred. 'Allemannsretten' gives you the right to roam anywhere in nature.", "safety": "Extraordinarily safe. Be careful on slippery rocks near fjords and always dress for 'four seasons in one day'.", "mult": 2.1, "language": "Norwegian • Hello: Hallo", "currency": "Norwegian Krone (NOK)", "curr_code": "NOK"},
+    "Sweden": {"food": "Swedish Meatballs, Gravlax, and Cinnamon Buns (Kanelbulle)", "culture": "The concept of 'Lagom' (not too much, not too little) permeates life. 'Fika' (coffee and cake break) is mandatory.", "safety": "Very safe. Be polite, don't be loud in public, and always recycle correctly.", "mult": 1.7, "language": "Swedish • Hello: Hej", "currency": "Swedish Krona (SEK)", "curr_code": "SEK"},
+    "Denmark": {"food": "Smørrebrød (Open sandwiches), pastries, and organic produce", "culture": "Focused on 'Hygge' (coziness). Cycling is the primary transport—follow bike traffic lights as strictly as car lights.", "safety": "Extremely safe. Use common sense in Christiania and avoid walking in bike lanes.", "mult": 1.8, "language": "Danish • Hello: Hej", "currency": "Danish Krone (DKK)", "curr_code": "DKK"},
+    "Poland": {"food": "Pierogi (Dumplings), Żurek soup, and Kielbasa", "culture": "Incredibly hospitable. If invited to a home, bring flowers (odd numbers only) and remove your shoes.", "safety": "Very safe. Use apps like Bolt/Uber for taxis and be careful crossing roads without lights.", "mult": 0.8, "language": "Polish • Hello: Cześć", "currency": "Polish Złoty (PLN)", "curr_code": "PLN"},
+    "Czech Republic": {"food": "Svíčková (Beef in cream), Trdelník, and Pilsner Beer", "culture": "Quiet and reserved in public, but warm once you know them. Beer is often cheaper than water and is a cultural staple.", "safety": "Safe, but watch out for currency exchange '0% commission' traps in Prague.", "mult": 0.9, "language": "Czech • Hello: Ahoj", "currency": "Czech Koruna (CZK)", "curr_code": "CZK"},
+    "Hungary": {"food": "Spicy Goulash, Chicken Paprikash, and Lángos", "culture": "Deep appreciation for classical music and thermal bath culture. Don't clink beer glasses (historical superstition).", "safety": "Safe. Check restaurant menus for 'service fees' and use official taxi apps like Bolt.", "mult": 0.7, "language": "Hungarian • Hello: Szia", "currency": "Hungarian Forint (HUF)", "curr_code": "HUF"},
+    "Austria": {"food": "Wiener Schnitzel, Sachertorte, and Apple Strudel", "culture": "Formal and polite. Punctuality is expected. Sunday is a total day of rest—almost everything is closed.", "safety": "One of the safest countries. Take alpine safety seriously if hiking or skiing.", "mult": 1.5, "language": "German • Hello: Servus", "currency": "Euro (€)", "curr_code": "EUR"},
+    "Taiwan": {"food": "Beef Noodle Soup, Din Tai Fung Dumplings, and Bubble Tea", "culture": "Unbelievably polite. Night markets are the social heart. Always stand on the right of the escalator.", "safety": "Safe at any hour. Great emergency services and very helpful locals if you look lost.", "mult": 1.2, "language": "Mandarin • Hello: Nǐ hǎo", "currency": "New Taiwan Dollar (TWD)", "curr_code": "TWD"},
+    "Saudi Arabia": {"food": "Kabsa (Spiced rice & meat), Dates, and Arabic Coffee", "culture": "Deeply hospitable but conservative. Follow dress codes (shoulders/knees covered). Respect prayer times.", "safety": "Very safe. Observe local laws and customs strictly to avoid fines or legal issues.", "mult": 1.5, "language": "Arabic • Hello: Marhaba", "currency": "Saudi Riyal (SAR)", "curr_code": "SAR"}
 }
 
 FAMOUS_LANDMARKS = {
@@ -251,67 +246,70 @@ SCAM_DB = {
     "Japan": [{"title": "Overpriced Bars", "desc": "Touts in Roppongi/Kabukicho may lure you into bars with 'cheap' drinks but hit you with huge hidden fees."}],
     "France": [{"title": "The Friendship Bracelet", "desc": "Someone tries to tie a string around your finger in Montmartre and then demands payment."}],
     "Italy": [{"title": "Helpful Luggage Carriers", "desc": "Random people at stations grab your bags to 'help' and then demand a high tip."}],
-    "Thailand": [{"title": "Grand Palace is Closed", "desc": "Tuk-tuk drivers tell you the Palace is closed for a holiday to take you to overpriced gem shops."}],
-    "India": [{"title": "The Fake Tourist Office", "desc": "Drivers claim your hotel is closed/full and take you to a 'government' agency to rebook at 5x price."}],
-    "Turkey": [{"title": "The Shoe Brusher", "desc": "A brusher drops their brush, you pick it up, they 'thank' you with a brush and then charge you."}],
-    "Spain": [{"title": "Bird Dropping Scam", "desc": "Someone sprays a substance on you, offers to clean it, and picks your pocket in the process."}],
-    "Vietnam": [{"title": "The Coconut Guy", "desc": "Someone puts a coconut yoke on your shoulder for a photo, then demands a huge fee."}],
-    "USA": [{"title": "CD Handout", "desc": "In NYC/LA, people hand you a 'free' CD, then aggressively demand a 'donation' once it's in your hand."}],
-    "Egypt": [{"title": "Free Camel Ride", "desc": "Getting on the camel is 'free', but you have to pay a massive fee to get down."}],
-    "Morocco": [{"title": "The Henna Scam", "desc": "Women aggressively grab your hand to start a henna tattoo and then demand payment for the 'service'."}],
-    "Czech Republic": [{"title": "Currency Exchange Trap", "desc": "Unofficial exchange booths offer poor rates or huge fees hidden in fine print."}],
-    "Hungary": [{"title": "Overpriced Menu", "desc": "Restaurants in tourist areas may show a cheap menu outside but charge much higher prices inside."}],
-    "Argentina": [{"title": "The Mustard Scam", "desc": "Someone 'accidentally' spills mustard on you, helps you clean up, and pickpockets you."}]
+SCAM_DB = {
+    "Japan": [{"title": "Overpriced Bars", "desc": "Touts in Kabukicho may lure you with 'cheap' drinks but hit you with massive hidden cover charges."}, {"title": "The Fake Monk", "desc": "People dressed as monks hand you a 'gold' card/bracelet, then aggressively demand a donation."}],
+    "France": [{"title": "The Friendship Bracelet", "desc": "Touts in Montmartre try to tie a string around your finger, then demand €20 once you're 'stuck'."}, {"title": "The Petition Scam", "desc": "Groups of teenagers ask you to sign a petition for a fake charity while a partner picks your pocket."}],
+    "Italy": [{"title": "Rose Sellers", "desc": "A vendor hands a rose to your partner as a 'gift', then demands payment from you once accepted."}, {"title": "Self-Appointed Porters", "desc": "Touts at train stations grab your bags to 'help' and then refuse to leave without a high tip."}],
+    "Thailand": [{"title": "Grand Palace is Closed", "desc": "Tuk-tuk drivers claim the Palace is closed for a royal event to redirect you to overpriced jewelry shops."}, {"title": "The Jet Ski Scam", "desc": "Operators claim you damaged a jet ski (using old scratches) and demand thousands in 'repairs'."}],
+    "India": [{"title": "The Fake Tourist Office", "desc": "Drivers claim your hotel is 'burned down' or 'full' and take you to a fake agency to rebook at 10x the price."}, {"title": "The Gem Scam", "desc": "Strangers offer a 'tax-free' gem export deal that is actually a high-priced fraud."}],
+    "Turkey": [{"title": "The Shoe Brusher", "desc": "A brusher drops their brush; when you pick it up, they 'thank' you with a brush and charge an exorbitant fee."}, {"title": "The Tea/Beer Invite", "desc": "A friendly local invites you for a drink, then leaves you with a bill for hundreds of dollars."}],
+    "Spain": [{"title": "Bird Dropping Scam", "desc": "Someone sprays a white liquid on you, offers to 'help' clean it, and pickpockets you during the distraction."}, {"title": "The Trileros (Shell Game)", "desc": "Fake street games designed to distract you while accomplices work your pockets."}],
+    "Vietnam": [{"title": "The Coconut Yoke", "desc": "A vendor puts their coconut yoke on your shoulder for a 'free' photo, then demands payment and overcharges for fruit."}, {"title": "The Shoe Repair", "desc": "Someone starts 'fixing' your shoe while you're sitting, then demands a huge fee for the unrequested work."}],
+    "USA": [{"title": "The CD Handout", "desc": "In Times Square/Hollywood, people hand you a 'free' CD, then aggressively demand a 'donation' once you touch it."}, {"title": "The Broken Glasses", "desc": "Someone bumps into you, drops broken glasses, and blames you for the 'accident' to get cash."}],
+    "Egypt": [{"title": "The Free Camel Ride", "desc": "Getting on the camel is 'free', but they won't let the camel sit down to let you off until you pay a high price."}, {"title": "The Hidden Museum Ticket", "desc": "Touts claim you need a 'special' ticket to enter certain areas that are actually included."}],
+    "Brazil": [{"title": "The Good Samaritan", "desc": "Someone points out a 'stain' or 'dirt' on your clothes, offers to help, and robs you during the process."}],
+    "Morocco": [{"title": "The Henna Grab", "desc": "Women in squares grab your hand and start a henna tattoo, then demand €30 for the 'completed' work."}, {"title": "The Closed Path", "desc": "Youths claim a street is 'closed' or 'blocked' to lead you into a dead end where they demand money to guide you out."}],
+    "Czech Republic": [{"title": "The 0% Commission Trap", "desc": "Exchange booths offer 0% commission but use a hidden, terrible exchange rate found in the fine print."}, {"title": "The Fake Police", "desc": "People in fake uniforms ask to check your wallet for 'counterfeit' bills, then swap them for fakes."}],
 }
 
 APPS_DB = {
-    "Japan": [{"name": "Google Maps", "usage": "Best for complex train navigation."}, {"name": "Google Translate", "usage": "Camera mode for menus."}],
-    "Thailand": [{"name": "Grab", "usage": "Essential for fair-priced taxis and bikes."}, {"name": "Klook", "usage": "Discounted attraction tickets."}],
-    "India": [{"name": "Ola/Uber", "usage": "Avoid rickshaw bargaining."}, {"name": "Zomato", "usage": "Top food delivery and reviews."}],
-    "France": [{"name": "Citymapper", "usage": "Best for Paris Metro."}, {"name": "TheFork", "usage": "Restaurant reservations and discounts."}],
-    "USA": [{"name": "Uber/Lyft", "usage": "Primary ride sharing."}, {"name": "Yelp", "usage": "Most reliable for food reviews."}],
-    "Singapore": [{"name": "Grab", "usage": "Standard for rides and food."}, {"name": "Citymapper", "usage": "Best for MRT/Bus routes."}],
-    "South Korea": [{"name": "Naver Maps", "usage": "Much better than Google Maps in Korea."}, {"name": "KakaoTaxi", "usage": "Leading taxi hailing app."}],
-    "Germany": [{"name": "DB Navigator", "usage": "Essential for train schedules and tickets."}, {"name": "FreeNow", "usage": "Main taxi app."}],
-    "Vietnam": [{"name": "Grab", "usage": "Cheapest and safest way to get around."}, {"name": "Zalo", "usage": "Local messaging app for bookings."}],
-    "Spain": [{"name": "Cabify", "usage": "Better and safer than local taxis."}, {"name": "Glovo", "usage": "Multi-category delivery."}],
-    "Norway": [{"name": "Vy", "usage": "Essential for train and bus tickets."}, {"name": "Ruter", "usage": "Best for Oslo public transport."}],
-    "Poland": [{"name": "Jakdojade", "usage": "Leading public transport planner."}, {"name": "Bolt", "usage": "Cheap and reliable ride sharing."}],
-    "Argentina": [{"name": "Cabify", "usage": "Safer alternative to street taxis."}, {"name": "PedidosYa", "usage": "Top food delivery service."}]
+    "Japan": [{"name": "Google Maps", "usage": "Best for train exits and platform info."}, {"name": "Google Translate", "usage": "Essential for camera-translating menus."}, {"name": "Suica/Pasmo", "usage": "Digital transit cards."}],
+    "Thailand": [{"name": "Grab", "usage": "Safety and fair pricing for taxis and bikes."}, {"name": "Google Translate", "usage": "Helpful for rural areas."}, {"name": "Klook", "usage": "Best for booking island tours."}],
+    "India": [{"name": "Uber/Ola", "usage": "Reliable ride-hailing with fixed prices."}, {"name": "Zomato/Swiggy", "usage": "Best for food delivery and ratings."}, {"name": "MakeMyTrip", "usage": "Leading app for Indian domestic travel."}],
+    "France": [{"name": "Citymapper", "usage": "The gold standard for Paris Metro navigation."}, {"name": "TheFork", "usage": "Essential for restaurant reservations and discounts."}, {"name": "Bonjour RATP", "usage": "Official Paris transit app."}],
+    "USA": [{"name": "Uber/Lyft", "usage": "Primary ride-sharing apps."}, {"name": "Yelp", "usage": "Most reliable for real food and service reviews."}, {"name": "AllTrails", "usage": "Best for hiking in National Parks."}],
+    "Singapore": [{"name": "Grab", "usage": "Unified app for rides, food, and delivery."}, {"name": "Citymapper", "usage": "Best for MRT and bus timing."}, {"name": "Chope", "usage": "Top restaurant booking platform."}],
+    "South Korea": [{"name": "Naver Maps", "usage": "Far more accurate than Google Maps in Korea."}, {"name": "KakaoTaxi", "usage": "Best for calling official taxis."}, {"name": "Papago", "usage": "The best translator for Korean language."}],
+    "Germany": [{"name": "DB Navigator", "usage": "Mandatory for train schedules and mobile tickets."}, {"name": "FreeNow", "usage": "Main taxi and e-scooter app."}, {"name": "Komoot", "usage": "Best for cycling and hiking routes."}],
+    "Vietnam": [{"name": "Grab", "usage": "Indispensable for safe transport and food."}, {"name": "Zalo", "usage": "Local messaging app used for all business bookings."}],
+    "Norway": [{"name": "Vy", "usage": "Booking trains and long-distance buses."}, {"name": "Ruter", "usage": "Essential for Oslo metro and ferry tickets."}, {"name": "UT.no", "usage": "Best for finding hiking trails."}],
+    "Argentina": [{"name": "Cabify", "usage": "The safest and most reliable way to get around Buenos Aires."}, {"name": "PedidosYa", "usage": "Top app for food and grocery delivery."}],
 }
 
 EMERGENCY_DB = {
-    "Japan": {"police": "110", "medical": "119"},
-    "France": {"police": "17", "medical": "15", "all": "112"},
+    "Japan": {"police": "110", "medical": "119", "fire": "119"},
+    "France": {"police": "17", "medical": "15", "fire": "18", "all": "112"},
     "USA": {"all": "911"},
     "UK": {"all": "999", "eu": "112"},
-    "Thailand": {"police": "191", "tourist_police": "1155"},
+    "Thailand": {"police": "191", "tourist_police": "1155", "medical": "1669"},
     "India": {"all": "112"},
     "Spain": {"all": "112"},
-    "Germany": {"police": "110", "medical": "112"},
-    "Singapore": {"police": "999", "medical": "995"},
+    "Germany": {"police": "110", "medical": "112", "fire": "112"},
+    "Singapore": {"police": "999", "medical": "995", "fire": "995"},
     "Australia": {"all": "000"},
     "Canada": {"all": "911"},
-    "Switzerland": {"police": "117", "medical": "144", "all": "112"},
-    "Norway": {"police": "112", "medical": "113"},
+    "Switzerland": {"police": "117", "medical": "144", "fire": "118", "all": "112"},
+    "Norway": {"police": "112", "medical": "113", "fire": "110"},
     "Poland": {"all": "112"},
-    "Argentina": {"police": "911", "medical": "107"},
-    "Kenya": {"all": "999"}
+    "Argentina": {"police": "911", "medical": "107", "fire": "100"},
+    "Kenya": {"all": "999"},
+    "Turkey": {"all": "112"},
+    "UAE": {"police": "999", "medical": "998", "fire": "997"}
 }
 
 UTILITIES_DB = {
-    "Japan": {"power": "Type A/B, 100V", "water": "Tap water is safe", "sim": "Ubigi or Airalo (eSIM) recommended"},
-    "UK": {"power": "Type G, 230V", "water": "Tap water is safe", "sim": "EE or Vodafone (Pick up at airport)"},
-    "USA": {"power": "Type A/B, 120V", "water": "Tap water is safe", "sim": "T-Mobile Tourist Plan"},
-    "India": {"power": "Type C/D/M, 230V", "water": "Drink only bottled water", "sim": "Airtel or Jio (Requires Passport)"},
-    "Thailand": {"power": "Type A/B/C/O, 220V", "water": "Drink only bottled water", "sim": "AIS or TrueMove Tourist SIM"},
-    "France": {"power": "Type C/E, 230V", "water": "Tap water is safe", "sim": "Orange Holiday SIM"},
-    "Germany": {"power": "Type C/F, 230V", "water": "Tap water is safe", "sim": "Telekom or Vodafone"},
-    "Spain": {"power": "Type C/F, 230V", "water": "Tap water is safe", "sim": "Movistar or Orange"},
-    "Singapore": {"power": "Type G, 230V", "water": "Tap water is safe", "sim": "Singtel or StarHub (7-Eleven)"},
-    "Switzerland": {"power": "Type J, 230V", "water": "Tap water is world's best", "sim": "Swisscom or Salt"},
-    "Norway": {"power": "Type C/F, 230V", "water": "Tap water is high quality", "sim": "Telenor or Telia"},
-    "Argentina": {"power": "Type C/I, 220V", "water": "Drink bottled water in rural areas", "sim": "Claro or Personal"}
+    "Japan": {"power": "Type A/B, 100V, 60Hz", "water": "Tap water is safe and high quality.", "sim": "Ubigi or Airalo (eSIM) for easy data; physical SIMs are hard for tourists."},
+    "UK": {"power": "Type G, 230V, 50Hz", "water": "Tap water is perfectly safe to drink.", "sim": "EE or Vodafone have the best coverage; pick up at Heathrow/Gatwick."},
+    "USA": {"power": "Type A/B, 120V, 60Hz", "water": "Tap water is safe everywhere.", "sim": "T-Mobile Tourist Plan or Airalo eSIM are the easiest options."},
+    "India": {"power": "Type C/D/M, 230V, 50Hz", "water": "Strictly drink bottled or filtered water; avoid ice in street drinks.", "sim": "Airtel or Jio; requires Passport/Visa and can take 2-12 hours to activate."},
+    "Thailand": {"power": "Type A/B/C/O, 220V", "water": "Drink only bottled water; usually provided free in hotels.", "sim": "AIS or TrueMove Tourist SIMs are excellent and available at every airport."},
+    "France": {"power": "Type C/E, 230V", "water": "Tap water is safe and free in restaurants ('une carafe d'eau').", "sim": "Orange Holiday SIM offers great data across the EU."},
+    "Germany": {"power": "Type C/F, 230V", "water": "Tap water is safe and highly regulated.", "sim": "Telekom or Vodafone; requires ID registration for physical SIMs."},
+    "Spain": {"power": "Type C/F, 230V", "water": "Tap water is safe, though tastes 'hard' in coastal cities.", "sim": "Movistar or Orange; available at any local shop with a passport."},
+    "Singapore": {"power": "Type G, 230V", "water": "Tap water is high-quality and safe to drink.", "sim": "Singtel or StarHub; can be bought at any 7-Eleven with a passport."},
+    "Switzerland": {"power": "Type J, 230V", "water": "Tap water is world-class; refill at any public fountain.", "sim": "Swisscom offers the best coverage; Salt is cheaper."},
+    "Norway": {"power": "Type C/F, 230V", "water": "Tap water is among the world's purest.", "sim": "Telenor or Telia; physical SIMs require ID registration."},
+    "Argentina": {"power": "Type C/I, 220V", "water": "Tap water is safe in major cities like BA, but buy bottled in rural areas.", "sim": "Claro or Personal; go to an official 'Centro de Atención' with your passport."},
 }
 
 SPEND_DB = {
@@ -331,15 +329,15 @@ SPEND_DB = {
 }
 
 TIPS_DB = {
-    "Japan": ["Don't tip at restaurants; it's considered rude.", "Carry a small bag for your trash; bins are rare.", "Stand on the left on escalators (except Osaka).", "Bowing is the standard way to greet."],
-    "India": ["Always carry small cash notes for local markets.", "Download offline maps for rural areas.", "Respect local dress codes at religious sites.", "Remove shoes before entering homes/temples."],
-    "France": ["Always say 'Bonjour' when entering a shop.", "Don't rush your meal; dining is an experience here.", "Validate your ticket before boarding trains.", "Tipping is appreciated but not mandatory."],
-    "Thailand": ["Never touch someone's head; it's considered sacred.", "Point with your chin or whole hand, not your finger.", "Dress modestly for temples (cover shoulders/knees)."],
-    "USA": ["Tipping 18-22% is standard in restaurants.", "Taxes are rarely included in the displayed price.", "Portion sizes are usually very large."],
-    "Singapore": ["Chewing gum is technically prohibited.", "Strict fines for littering and smoking in public.", "Use the MRT; it's one of the best in the world."],
-    "Switzerland": ["Water from public fountains is safe and delicious.", "Punctuality is extremely important for transport.", "Sunday is a day of rest; most shops are closed."],
-    "Norway": ["Tap water is among the cleanest in the world; don't buy plastic bottles.", "Alcohol is very expensive and sold only in Vinmonopolet shops.", "Tipping is not required but rounding up is nice."],
-    "Argentina": ["Be prepared for late dinners; restaurants often don't open until 8 PM.", "Blue Dollar refers to the unofficial exchange rate; research it.", "Always keep a small amount of cash for tips (propina)."]
+    "Japan": ["Don't tip at restaurants; it's considered rude and might be refused.", "Carry a small bag for your trash; public bins are almost non-existent.", "Stand on the left on escalators in Tokyo, but on the right in Osaka.", "Bowing is the standard way to greet; a slight nod is usually enough for tourists.", "Silence is expected on public transport; avoid talking on your phone."],
+    "India": ["Always carry small cash notes (₹10, ₹20) for local markets and tips.", "Download offline maps for rural areas as signal can be spotty.", "Respect local dress codes; cover shoulders and knees at all religious sites.", "Remove shoes before entering homes, temples, and some small shops.", "Only use your right hand for eating and passing items to others."],
+    "France": ["Always say 'Bonjour' (day) or 'Bonsoir' (evening) when entering a shop or café.", "Don't rush your meal; dining is a slow social experience in France.", "Validate your train/metro ticket at the yellow machines before boarding.", "A 'service compris' is usually included, but leaving a few euros is appreciated.", "Avoid wearing loud 'tourist' clothes if you want to blend in."],
+    "Thailand": ["Never touch someone's head; it's considered the most sacred part of the body.", "Point with your chin or your whole hand, never with your index finger.", "Dress modestly for temples (cover shoulders and knees); sarongs are often for rent.", "The King and Royal Family are deeply respected; never make negative comments.", "Always remove your shoes before entering a home or a temple."],
+    "USA": ["Tipping 18-22% is expected for table service in restaurants.", "Sales tax is almost never included in the price tag; it's added at checkout.", "Portion sizes are usually massive; don't be afraid to ask for a 'to-go' box.", "In big cities, walking fast and looking like you know where you're going is the best safety tip.", "Prices in bars/clubs can be much higher than they appear; check for cover charges."],
+    "Singapore": ["Chewing gum is technically prohibited and cannot be bought locally.", "Strict fines for littering, smoking in non-designated areas, and eating on the MRT.", "Use the MRT for everything; it is one of the cleanest and most efficient systems in the world.", "Tap your credit/debit card directly for bus and train fares.", "The word 'Chope' means reserving a seat with a packet of tissues—it's a local law!"],
+    "Switzerland": ["Water from public fountains is safe and often better than bottled water.", "Punctuality is a national religion; if the train says 10:02, it leaves at 10:02.", "Sunday is a day of rest; most supermarkets and shops are strictly closed.", "Hiking trails are exceptionally well-marked; follow the yellow signs.", "COOP and Migros are the best places for high-quality, affordable 'picnic' lunches."],
+    "Norway": ["Tap water is among the cleanest in the world; don't waste money on plastic bottles.", "Alcohol is very expensive and sold only in state-run 'Vinmonopolet' shops.", "Tipping is not required, but rounding up the bill is a nice gesture for good service.", "Nature is for everyone; the 'Right to Roam' means you can camp almost anywhere for one night.", "The weather changes in minutes; 'There is no such thing as bad weather, only bad clothing'."],
+    "Argentina": ["Be prepared for late dinners; restaurants rarely see locals before 9:30 or 10:00 PM.", "Research the 'Blue Dollar' (informal exchange rate) to get significantly more value for your money.", "Always keep a small amount of cash for 'propina' (tips) and small café purchases.", "Football is a religion; avoid wearing the jersey of a rival team on match days.", "The 'Merienda' (tea time) at 5:00 PM is a mandatory ritual for coffee and pastries."],
 }
 
 
@@ -621,6 +619,7 @@ def plan_trip():
     intel = {
         "bestTime": BEST_TIME_DB.get(country, {"months": "Anytime", "advice": "Consult local weather forecasts for the best experience."}),
         "timezone": TIMEZONE_DB.get(country, "UTC"),
+        "curr_code": culture_info.get("curr_code", "EUR"),
         "scams": SCAM_DB.get(country, [{"title": "General Awareness", "desc": "Stay alert in crowded tourist areas and use official transport."}]),
         "apps": APPS_DB.get(country, [{"name": "Google Maps", "usage": "Navigation"}, {"name": "Google Translate", "usage": "Translation"}]),
         "emergency": EMERGENCY_DB.get(country, {"all": "112"}),
@@ -652,92 +651,80 @@ def chat():
     culture = ctx.get('culture', '')
     safety = ctx.get('safety', '')
     currency = ctx.get('currency', '')
-    days = ctx.get('days', '')
+    days = ctx.get('days', 0)
 
-    # Rule-based intent matching
-    def contains(*keywords):
+    # World-Class Concierge Persona
+    prefix = f"As your Dora Concierge for {dest}, I'm here to help. "
+    
+    # Intent Matching Logic
+    def matches(keywords):
         return any(k in message for k in keywords)
 
-    if contains('hello', 'hi', 'hey', 'greet'):
-        reply = f"Hello! I'm your AI companion for your {dest} trip. Ask me about food, culture, safety, currency, packing, or anything else about your journey!"
+    # 1. Greetings & Persona
+    if matches(['hello', 'hi', 'hey', 'who are you', 'help']):
+        reply = f"Hello! I am your Dora AI Travel Concierge. I've analyzed your {days}-day plan for {dest} and I'm ready to help you with hidden gems, cultural nuances, or logistical hacks. What's on your mind?"
 
-    elif contains('food', 'eat', 'restaurant', 'cuisine', 'dish', 'drink', 'vegetarian', 'vegan', 'halal'):
+    # 2. Culinary / Food Deep-Dive
+    elif matches(['food', 'eat', 'restaurant', 'cuisine', 'dish', 'drink', 'vegetarian', 'vegan', 'halal', 'breakfast', 'lunch', 'dinner']):
         if food:
-            reply = f"In {dest}, the must-try dishes are: {food} If you're looking for vegetarian or vegan options, search for local plant-based eateries — most destinations have excellent options near tourist areas."
+            reply = f"For your culinary journey in {dest}, you simply cannot miss {food}. Beyond those, I suggest looking for small 'hole-in-the-wall' spots where locals congregate—that's where the soul of the cuisine lives. Would you like a specific recommendation for a budget or fine-dining experience?"
         else:
-            reply = f"I'd recommend exploring the local street food scene in {dest}. Markets and local eateries are always the best bet for authentic flavours."
+            reply = f"Exploring the local flavors is the heart of any trip to {dest}. I'd recommend starting with the central food markets early in the morning for the freshest experience. Is there a specific dietary preference you have?"
 
-    elif contains('culture', 'custom', 'etiquette', 'tradition', 'behavior', 'behave', 'tip', 'tipping'):
+    # 3. Cultural Etiquette & Social Norms
+    elif matches(['culture', 'custom', 'etiquette', 'tradition', 'behavior', 'behave', 'tip', 'tipping', 'greeting', 'respect']):
         if culture:
-            reply = f"Cultural notes for {dest}: {culture}"
+            reply = f"Understanding local customs is key to a smooth trip. In {dest}, remember: {culture}. A small tip from me: learning 'Hello' and 'Thank You' in the local language opens many doors that remain closed to most tourists."
         else:
-            reply = f"Always research local customs before visiting {dest}. Showing respect for traditions goes a long way with locals."
+            reply = f"The culture in {dest} is rich and welcoming. Generally, a polite attitude and observing how locals interact will serve you well. Would you like me to help you find some basic phrases?"
 
-    elif contains('safe', 'safety', 'crime', 'dangerous', 'danger', 'scam', 'pickpocket'):
+    # 4. Safety & Security (Granular)
+    elif matches(['safe', 'safety', 'crime', 'dangerous', 'danger', 'scam', 'pickpocket', 'night', 'alone', 'police']):
         if safety:
-            reply = f"Safety tips for {dest}: {safety}"
+            reply = f"Your safety is my priority. In {dest}, {safety} Always keep a digital copy of your passport in the cloud and avoid displaying expensive jewelry in crowded transit hubs. Do you have a specific neighborhood concern?"
         else:
-            reply = f"As with any destination, maintain standard urban awareness in {dest}. Keep valuables close and stay in well-lit areas at night."
+            reply = f"Generally, {dest} is welcoming, but like any global hub, stay vigilant in crowded areas. Keep your belongings in a front-facing bag. I can check for specific local emergency contacts if you'd like?"
 
-    elif contains('currency', 'money', 'cash', 'exchange', 'pay', 'cost', 'price', 'budget', 'cheap', 'expensive'):
+    # 5. Logistics / Money / Budget
+    elif matches(['currency', 'money', 'cash', 'exchange', 'pay', 'cost', 'price', 'budget', 'cheap', 'expensive', 'atm', 'card']):
         if currency:
-            reply = f"The local currency in {dest} is: {currency}. I recommend carrying some local cash for markets and smaller establishments, though cards are widely accepted in most tourist areas."
+            reply = f"Managing your finances in {dest}: The local currency is {currency}. While major shops take cards, I recommend always having small denominations of cash for local markets or small transport. ATMs are best found inside banks for better security."
         else:
-            reply = f"Check the current exchange rate before you travel to {dest}. It's always good to have some local cash on hand."
+            reply = f"Budgeting for {dest} is key. I've calculated spend estimators in your Travel Intel tab. Generally, having a mix of credit cards and a small amount of local cash is the most resilient strategy."
 
-    elif contains('pack', 'packing', 'luggage', 'bring', 'carry', 'clothes', 'clothing', 'wear'):
-        reply = (f"For {dest}, here's a smart packing checklist:\n"
-                 f"• Passport & travel documents\n"
-                 f"• Universal power adapter\n"
-                 f"• Comfortable walking shoes\n"
-                 f"• Power bank & chargers\n"
-                 f"• Any prescription medication\n"
-                 f"• Weather-appropriate clothing (check the weather widget for current conditions)\n"
-                 f"• A small daypack for excursions")
+    # 6. Packing & Gear
+    elif matches(['pack', 'packing', 'luggage', 'bring', 'carry', 'clothes', 'clothing', 'wear', 'shoes', 'jacket']):
+        reply = (f"For {dest}, my 'Pro-Traveler' checklist includes: "
+                 f"1. A high-quality universal power adapter. 2. Broken-in walking shoes (trust me on this). "
+                 f"3. A reusable water bottle with a filter. 4. Layers—even in warm climates, AC can be freezing! "
+                 f"Since you're staying for {days} days, I recommend a modular packing system to keep organized.")
 
-    elif contains('day', 'itinerary', 'plan', 'schedule', 'activity', 'activities', 'tour', 'visit'):
-        reply = (f"Your {days}-day itinerary for {dest} is already planned in the Itinerary tab. "
-                 f"I'd suggest starting each morning early to beat the crowds at popular sites. "
-                 f"Afternoons are great for local markets, and evenings for dining out. "
-                 f"Would you like tips on a specific type of activity — adventure, history, food, or nightlife?")
+    # 7. Itinerary / Timing / Attractions
+    elif matches(['day', 'itinerary', 'plan', 'schedule', 'activity', 'activities', 'tour', 'visit', 'landmarks', 'see', 'do']):
+        reply = (f"Your {days}-day itinerary is designed to balance major landmarks with local discovery. "
+                 f"If you're feeling energetic, I suggest doing the 'big' attractions before 10 AM. "
+                 f"Would you like me to suggest a 'hidden gem' in {dest} that isn't on the standard tourist maps?")
 
-    elif contains('weather', 'temperature', 'rain', 'hot', 'cold', 'climate', 'season'):
-        reply = (f"Check the live weather widget at the top of your dashboard for real-time conditions in {dest}. "
-                 f"As a general tip, always pack a light layer regardless of the season — temperatures can surprise you!")
+    # 8. Weather & Seasonal Advice
+    elif matches(['weather', 'temperature', 'rain', 'hot', 'cold', 'climate', 'season', 'best time']):
+        reply = (f"I'm monitoring the live conditions for {dest}. Always pack a compact umbrella or a light shell—weather in this region can be beautifully unpredictable. Check your Weather widget for the 7-day outlook!")
 
-    elif contains('hotel', 'accommodation', 'stay', 'hostel', 'airbnb', 'resort'):
-        reply = (f"Your selected package includes accommodation recommendations for {dest}. "
-                 f"For the best experience, look for hotels in the city centre or near major transit hubs. "
-                 f"Booking in advance (especially for peak season) can save you up to 30%.")
+    # 9. Transport / Transit
+    elif matches(['transport', 'taxi', 'uber', 'metro', 'bus', 'train', 'flight', 'airport', 'transit', 'drive', 'car']):
+        reply = (f"Navigating {dest} is part of the adventure! Public transit is usually the most efficient. "
+                 f"Pro tip: Download the local transit app as soon as you land. For late-night travel, always use reputable rideshare apps over unmarked taxis.")
 
-    elif contains('transport', 'taxi', 'uber', 'metro', 'bus', 'train', 'flight', 'airport', 'transit'):
-        reply = (f"For getting around {dest}, I recommend using official taxis or rideshare apps (Uber/Grab where available). "
-                 f"Public metro and bus networks are usually the most affordable option. "
-                 f"Always agree on a price before getting into an unmarked cab.")
+    # 10. Thank You / Closing
+    elif matches(['thank', 'thanks', 'great', 'awesome', 'perfect', 'good', 'helpful', 'bye', 'goodbye']):
+        reply = f"It's my absolute pleasure to assist with your {dest} journey! I'll be right here if you need anything else. Safe travels, and enjoy every moment!"
 
-    elif contains('visa', 'passport', 'entry', 'immigration', 'requirement'):
-        reply = (f"Visa requirements for {dest} vary by nationality. I strongly recommend checking the official embassy website "
-                 f"of {dest} for your country's entry requirements at least 6-8 weeks before your trip.")
-
-    elif contains('language', 'speak', 'phrase', 'word', 'translate', 'english'):
-        reply = (f"Language tip for {dest}: English is spoken in most tourist areas. "
-                 f"Learning a few basic local phrases (hello, thank you, excuse me, how much?) goes a long way. "
-                 f"Google Translate with offline download is your best travel companion.")
-
-    elif contains('emergency', 'hospital', 'doctor', 'police', 'help', 'ambulance'):
-        reply = (f"In case of emergency in {dest}, always save the local emergency number (usually 112 or 911) and the contact "
-                 f"for your country's embassy. Travel insurance with medical coverage is highly recommended for all international trips.")
-
-    elif contains('thank', 'thanks', 'great', 'awesome', 'perfect', 'good', 'helpful'):
-        reply = f"You're welcome! Enjoy your trip to {dest}. Feel free to ask anything else before you go!"
-
+    # Fallback
     else:
-        reply = (f"That's a great question about {dest}! For the most accurate and up-to-date information, "
-                 f"I recommend checking travel resources like Lonely Planet, TripAdvisor, or the official tourism board "
-                 f"for {dest}. Is there anything specific about food, culture, safety, or packing I can help you with?")
+        reply = (f"That's a fascinating question about {dest}! While I don't have that specific data point yet, "
+                 f"I can certainly help you with food, local etiquette, safety, or logistical planning. "
+                 f"What aspect of your {days}-day trip shall we optimize next?")
 
     return jsonify({"reply": reply})
-
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
