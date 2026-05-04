@@ -1,5 +1,3 @@
-<div align="center">
-
 # Dora Travel Agency
 
 **An intelligent, full-stack travel planning application powered by real-world geospatial APIs and a cinematic 3D globe experience.**
@@ -11,9 +9,7 @@
 [![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://vercel.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-[View Live Demo](#) &nbsp;·&nbsp; [Report a Bug](https://github.com/narwal4421/dora-travel-agency/issues) &nbsp;·&nbsp; [Request a Feature](https://github.com/narwal4421/dora-travel-agency/issues)
-
-</div>
+[View Repository](https://github.com/narwal4421/dora-travel-agency) · [Report a Bug](https://github.com/narwal4421/dora-travel-agency/issues) · [Request a Feature](https://github.com/narwal4421/dora-travel-agency/issues)
 
 ---
 
@@ -26,7 +22,8 @@ Dora Travel Agency is a full-stack web application that enables users to generat
 ## Features
 
 | Feature | Description |
-|---|---|
+| Feature | Description |
+| --- | --- |
 | **Cinematic 3D Globe** | Interactive globe powered by Three.js and Globe.gl with animated flight paths, destination pin drop, and a dramatic cinematic zoom sequence |
 | **AI Itinerary Generator** | Generates a full day-by-day travel itinerary tailored to destination, trip duration, and user interests |
 | **3-Tier Travel Packages** | Budget, Balanced, and Luxury packages with estimated costs, accommodation tier, flight class, and transport recommendations |
@@ -76,7 +73,7 @@ Dora Travel Agency is a full-stack web application that enables users to generat
 
 ## Project Structure
 
-```
+```text
 dora-travel-agency/
 ├── index.html           # Single-page application shell (search view + results dashboard)
 ├── style.css            # Full design system — theming, glassmorphism, animations, layout
@@ -99,20 +96,20 @@ dora-travel-agency/
 
 ### Installation
 
-**1. Clone the repository**
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/narwal4421/dora-travel-agency.git
 cd dora-travel-agency
 ```
 
-**2. Install Python dependencies**
+### 2. Install Python dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-**3. Start the backend server**
+### 3. Start the backend server
 
 ```bash
 python index.py
@@ -120,7 +117,7 @@ python index.py
 
 The Flask API will be available at `http://127.0.0.1:5000`.
 
-**4. Open the frontend**
+### 4. Open the frontend
 
 Open `index.html` in your browser, or serve it with any static file server:
 
@@ -200,7 +197,7 @@ Returns current weather conditions for a given city.
 **Query Parameters**
 
 | Parameter | Type | Description |
-|---|---|---|
+| --- | --- | --- |
 | `dest` | `string` | City name (e.g. `Tokyo`) |
 | `lat` | `float` | Optional — latitude coordinate |
 | `lon` | `float` | Optional — longitude coordinate |
@@ -219,7 +216,7 @@ Returns current weather conditions for a given city.
 
 ## Architecture
 
-```
+```text
 ┌─────────────────────────────────────────────────────────┐
 │                        Browser                          │
 │  ┌───────────┐   ┌──────────────┐   ┌───────────────┐  │
@@ -246,11 +243,14 @@ Returns current weather conditions for a given city.
 
 ---
 
-## Supported Destinations (Enhanced Cultural Database)
+## Supported Destinations (Global Intelligence Hub)
 
-The backend includes a curated dataset for 15 countries with rich local information:
+The backend includes a curated, high-fidelity dataset for **40+ countries** with deep regional insights:
 
-Italy · France · Japan · Turkey · United Kingdom · United States · Thailand · India · United Arab Emirates · Spain · Mexico · Greece · Germany · Egypt · Brazil
+**Europe:** Italy · France · UK · Germany · Spain · Greece · Netherlands · Turkey · Norway · Sweden · Denmark · Poland · Czech Republic · Hungary · Austria  
+**Americas:** USA · Canada · Mexico · Brazil · Argentina · Chile · Peru · Colombia  
+**Asia/Pacific:** Japan · China · South Korea · Thailand · India · Vietnam · Singapore · Australia · New Zealand · Taiwan  
+**Middle East & Africa:** UAE · Saudi Arabia · Egypt · Kenya · South Africa · Morocco
 
 For all other destinations, the application falls back to generic contextual travel guidance derived from geocoding data.
 
@@ -278,6 +278,4 @@ Distributed under the MIT License. See [`LICENSE`](LICENSE) for details.
 
 ---
 
-<div align="center">
-  <sub>Built with Flask, Three.js, and open geospatial data.</sub>
-</div>
+*Built with Flask, Three.js, and open geospatial data.*

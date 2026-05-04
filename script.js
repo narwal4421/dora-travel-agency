@@ -7,8 +7,78 @@ const API_BASE_URL = isLocal ? 'http://127.0.0.1:5000/api' : '/api';
 let _tripData = null;
 let _leafletMap = null;
 let _mapInitialised = false;
+let _clockInterval = null;
+let _tipsInterval = null;
+
+const TRANSLATIONS = {
+    en: {
+        hero_title: "Design Your Dream Trip with AI",
+        hero_desc: "Enter your preferences and let our advanced AI assemble the perfect travel package and itinerary in seconds.",
+        label_dest: "Destination", label_days: "Duration (Days)", label_budget: "Budget Profile", label_flights: "Flight Preference", label_hotel: "Preferred Hotel", label_interests: "Special Interests (Optional)",
+        opt_budget_low: "Budget Friendly", opt_budget_mid: "Balanced / Medium", opt_budget_high: "Luxury",
+        opt_flight_any: "Find Best Flights", opt_flight_none: "No Flight Needed", opt_flight_econ: "Economy Class Only", opt_flight_biz: "Business/First Class",
+        btn_generate: "Generate Itinerary", loader_desc: "Crafting your perfect itinerary...",
+        res_title: "Your trip to", btn_ask_ai: "Ask AI", btn_google_cal: "Google Cal", btn_download_ics: "Download .ics", btn_new_search: "New Search",
+        tab_packages: "Packages", tab_itinerary: "Itinerary", tab_local: "Local Guide", tab_intel: "Travel Intel", tab_map: "Interactive Map",
+        export_label: "Export itinerary", guide_visits: "Must Visits", guide_lang: "Language", guide_curr: "Currency", guide_culture: "Culture Protocol", guide_food: "Food Scene", guide_safety: "Safety", guide_packing: "Smart Packing List",
+        intel_local_time: "Local Time", intel_aqi: "Air Quality", intel_converter: "Converter", intel_best_time: "Best Time to Visit", intel_daily_spend: "Daily Spend Estimator", intel_utilities: "Power & Water", intel_emergency: "Emergency Numbers", intel_sim: "SIM Card Guide", intel_apps: "Must-Download Apps", intel_scams: "Scam Encyclopedia", intel_tips: "Traveler Tips Feed"
+    },
+    hi: {
+        hero_title: "AI के साथ अपनी सपनों की यात्रा डिज़ाइन करें",
+        hero_desc: "अपनी प्राथमिकताएं दर्ज करें और हमारे उन्नत AI को सेकंडों में सही यात्रा पैकेज और यात्रा कार्यक्रम बनाने दें।",
+        label_dest: "गंतव्य", label_days: "अवधि (दिन)", label_budget: "बजट प्रोफ़ाइल", label_flights: "उड़ान प्राथमिकता", label_hotel: "पसंदीदा होटल", label_interests: "विशेष रुचियां (वैकल्पिक)",
+        opt_budget_low: "बजट के अनुकूल", opt_budget_mid: "संतुलित / मध्यम", opt_budget_high: "लक्जरी",
+        opt_flight_any: "सर्वोत्तम उड़ानें खोजें", opt_flight_none: "किसी उड़ान की आवश्यकता नहीं", opt_flight_econ: "केवल इकोनॉमी क्लास", opt_flight_biz: "बिजनेस/फर्स्ट क्लास",
+        btn_generate: "यात्रा कार्यक्रम तैयार करें", loader_desc: "आपका आदर्श यात्रा कार्यक्रम तैयार किया जा रहा है...",
+        res_title: "आपकी यात्रा", btn_ask_ai: "AI से पूछें", btn_google_cal: "गूगल कैलेंडर", btn_download_ics: ".ics डाउनलोड करें", btn_new_search: "नई खोज",
+        tab_packages: "पैकेज", tab_itinerary: "यात्रा कार्यक्रम", tab_local: "स्थानीय गाइड", tab_intel: "यात्रा इंटेल", tab_map: "इंटरैक्टिव मैप",
+        export_label: "यात्रा कार्यक्रम निर्यात करें", guide_visits: "अवश्य देखें", guide_lang: "भाषा", guide_curr: "मुद्रा", guide_culture: "संस्कृति प्रोटोकॉल", guide_food: "भोजन दृश्य", guide_safety: "सुरक्षा", guide_packing: "स्मार्ट पैकिंग सूची",
+        intel_local_time: "स्थानीय समय", intel_aqi: "वायु गुणवत्ता", intel_converter: "कनवर्टर", intel_best_time: "यात्रा का सबसे अच्छा समय", intel_daily_spend: "दैनिक खर्च अनुमानक", intel_utilities: "बिजली और पानी", intel_emergency: "आपातकालीन नंबर", intel_sim: "सिम कार्ड गाइड", intel_apps: "अवश्य डाउनलोड करें ऐप्स", intel_scams: "स्कैम विश्वकोश", intel_tips: "यात्री टिप्स फीड"
+    },
+    es: {
+        hero_title: "Diseña tu viaje de ensueño con IA",
+        hero_desc: "Ingresa tus preferencias y deja que nuestra IA avanzada arme el paquete de viaje y el itinerario perfectos en segundos.",
+        label_dest: "Destino", label_days: "Duración (Días)", label_budget: "Perfil de presupuesto", label_flights: "Preferencia de vuelo", label_hotel: "Hotel preferido", label_interests: "Intereses especiales (Opcional)",
+        opt_budget_low: "Económico", opt_budget_mid: "Equilibrado / Medio", opt_budget_high: "Lujo",
+        opt_flight_any: "Buscar mejores vuelos", opt_flight_none: "Sin vuelo", opt_flight_econ: "Clase económica", opt_flight_biz: "Clase Ejecutiva/Primera",
+        btn_generate: "Generar itinerario", loader_desc: "Creando tu itinerario perfecto...",
+        res_title: "Tu viaje a", btn_ask_ai: "Preguntar a IA", btn_google_cal: "Google Cal", btn_download_ics: "Descargar .ics", btn_new_search: "Nueva búsqueda",
+        tab_packages: "Paquetes", tab_itinerary: "Itinerario", tab_local: "Guía local", tab_intel: "Info de viaje", tab_map: "Mapa interactivo",
+        export_label: "Exportar itinerario", guide_visits: "Visitas obligadas", guide_lang: "Idioma", guide_curr: "Moneda", guide_culture: "Protocolo cultural", guide_food: "Gastronomía", guide_safety: "Seguridad", guide_packing: "Lista de empaque",
+        intel_local_time: "Hora local", intel_aqi: "Calidad del aire", intel_converter: "Conversor", intel_best_time: "Mejor época", intel_daily_spend: "Gasto diario", intel_utilities: "Electricidad y Agua", intel_emergency: "Emergencias", intel_sim: "Guía de SIM", intel_apps: "Apps recomendadas", intel_scams: "Enciclopedia de estafas", intel_tips: "Consejos de viajeros"
+    },
+    fr: {
+        hero_title: "Concevez votre voyage de rêve avec l'IA",
+        hero_desc: "Entrez vos préférences et laissez notre IA avancée assembler le forfait voyage et l'itinéraire parfaits en quelques secondes.",
+        label_dest: "Destination", label_days: "Durée (Jours)", label_budget: "Profil budgétaire", label_flights: "Préférence de vol", label_hotel: "Hôtel préféré", label_interests: "Intérêts particuliers (Optionnel)",
+        opt_budget_low: "Économique", opt_budget_mid: "Équilibré / Moyen", opt_budget_high: "Luxe",
+        opt_flight_any: "Trouver les meilleurs vols", opt_flight_none: "Pas de vol nécessaire", opt_flight_econ: "Classe Économie", opt_flight_biz: "Classe Affaires/Première",
+        btn_generate: "Générer l'itinéraire", loader_desc: "Création de votre itinéraire...",
+        res_title: "Votre voyage à", btn_ask_ai: "Demander à l'IA", btn_google_cal: "Google Cal", btn_download_ics: "Télécharger .ics", btn_new_search: "Nouvelle recherche",
+        tab_packages: "Forfaits", tab_itinerary: "Itinéraire", tab_local: "Guide local", tab_intel: "Infos voyage", tab_map: "Carte interactive",
+        export_label: "Exporter l'itinéraire", guide_visits: "Incontournables", guide_lang: "Langue", guide_curr: "Devise", guide_culture: "Protocole culturel", guide_food: "Gastronomie", guide_safety: "Sécurité", guide_packing: "Liste de bagages",
+        intel_local_time: "Heure locale", intel_aqi: "Qualité de l'air", intel_converter: "Convertisseur", intel_best_time: "Meilleure période", intel_daily_spend: "Dépenses quotidiennes", intel_utilities: "Électricité et Eau", intel_emergency: "Urgences", intel_sim: "Guide SIM", intel_apps: "Apps recommandées", intel_scams: "Encyclopédie des arnaques", intel_tips: "Conseils voyageurs"
+    }
+};
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // Language Switching
+    const langSelect = document.getElementById('lang-select');
+    langSelect.addEventListener('change', (e) => {
+        applyLanguage(e.target.value);
+    });
+
+    function applyLanguage(lang) {
+        const t = TRANSLATIONS[lang] || TRANSLATIONS.en;
+        document.querySelectorAll('[data-t]').forEach(el => {
+            const key = el.getAttribute('data-t');
+            if (t[key]) el.textContent = t[key];
+        });
+    }
+    
+    // Set initial language from selector
+    applyLanguage(langSelect.value);
 
     // Theme Toggling
     const themeToggle = document.getElementById('theme-toggle');
@@ -36,8 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
         resultsView.classList.remove('active');
         resultsView.classList.add('hidden');
         searchView.classList.remove('hidden');
-        // A slight delay to allow smooth fade out/in
         setTimeout(() => searchView.classList.add('active'), 50);
+        if (_clockInterval) clearInterval(_clockInterval);
+        if (_tipsInterval) clearInterval(_tipsInterval);
     });
 
     // Form Submission
@@ -54,12 +125,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if(!destination) return;
 
-        // Show 3D globe wrapper
         loadingOverlay.classList.remove('hidden');
         destReveal.classList.add('hidden');
         destName.textContent = destination;
         
-        // Scene 1: Initialize Globe in 3D Space & Global Network Activity
         globeViz.innerHTML = '';
         const world = Globe()
             (globeViz)
@@ -70,7 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
             .atmosphereColor('#d4af37')
             .atmosphereAltitude(0.25);
             
-        // Generate a random "Neural Network" of luxury flight paths fetching data globally
         const parsingArcs = [...Array(100).keys()].map(() => ({
             startLat: (Math.random() - 0.5) * 180, startLng: (Math.random() - 0.5) * 360,
             endLat: (Math.random() - 0.5) * 180, endLng: (Math.random() - 0.5) * 360,
@@ -87,11 +155,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         world.pointOfView({ altitude: 2.5 }, 0);
         world.controls().autoRotate = true;
-        world.controls().autoRotateSpeed = 4; // Fast rotation while searching
+        world.controls().autoRotateSpeed = 4;
         world.controls().enableZoom = false;
 
         try {
-            // Fetch Travel Plan
             const planResponse = await fetch(`${API_BASE_URL}/plan-trip`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -101,16 +168,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!planResponse.ok) throw new Error('Failed to generate trip');
             const planData = await planResponse.json();
 
-            // Fetch Weather independently
             fetchWeather(destination);
-
-            // Render Results behind the scenes
             renderResults(planData, budget);
 
-            // Scene 2: Stop rotation, Add FX, Drop Pin, and Trigger Cinematic Zoom
             world.controls().autoRotate = false;
-            
-            // Generate nested ripples
             world.ringsData([
                 { lat: planData.lat, lng: planData.lon, maxR: 4, speed: 2 },
                 { lat: planData.lat, lng: planData.lon, maxR: 8, speed: 1.5 },
@@ -121,7 +182,6 @@ document.addEventListener('DOMContentLoaded', () => {
             .ringPropagationSpeed('speed')
             .ringRepeatPeriod(800);
             
-            // Delete neural network, launch ONE massive glowing arc to the target
             world.arcsData([{ startLat: 51.5, startLng: -0.1, endLat: planData.lat, endLng: planData.lon }])
                 .arcColor(() => ['rgba(212, 175, 55, 0)', '#d4af37'])
                 .arcDashLength(0.8)
@@ -133,7 +193,6 @@ document.addEventListener('DOMContentLoaded', () => {
             world.htmlElementsData([{ lat: planData.lat, lng: planData.lon }])
                 .htmlElement(d => {
                     const el = document.createElement('div');
-                    // Add a CSS pulsating animation to the pin
                     el.innerHTML = `
                       <div style="animation: bounce 1s infinite alternate; filter: drop-shadow(0 0 30px #e5c558);">
                           <i class="fa-solid fa-location-dot" style="color: #d4af37; font-size: 3.5rem;"></i>
@@ -143,21 +202,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     return el;
                 });
                 
-            world.pointOfView({ lat: planData.lat, lng: planData.lon, altitude: 0.04 }, 4500); // Extreme 4.5s cinematic zoom for precise location
+            world.pointOfView({ lat: planData.lat, lng: planData.lon, altitude: 0.04 }, 4500);
 
-            // Scene 3: Elegant Reveal
             setTimeout(() => {
                 destReveal.classList.remove('hidden');
-                
-                // Final Scene: Crossfade to loaded dashboard
                 setTimeout(() => {
                     loadingOverlay.classList.add('hidden');
                     searchView.classList.remove('active');
                     searchView.classList.add('hidden');
                     resultsView.classList.remove('hidden');
                     setTimeout(() => resultsView.classList.add('active'), 50);
-                }, 3500); // Admire the typography for 3.5s
-            }, 4000); // Starts smoothly near the end of the zoom
+                }, 3500);
+            }, 4000);
 
         } catch (error) {
             console.error(error);
@@ -176,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
         wTemp.textContent = '--°C';
         wCond.textContent = 'Fetching weather...';
         wTips.textContent = '';
-        wIcon.className = 'fa-solid fa-cloud-sun'; // default
+        wIcon.className = 'fa-solid fa-cloud-sun';
 
         try {
             const resp = await fetch(`${API_BASE_URL}/weather?dest=${encodeURIComponent(destination)}`);
@@ -188,7 +244,6 @@ document.addEventListener('DOMContentLoaded', () => {
             wTips.textContent = data.tips;
             generatePackingList(data.temperature);
 
-            // Simple icon logic based on condition string
             const cond = data.condition.toLowerCase();
             if(cond.includes('clear')) wIcon.className = 'fa-solid fa-sun';
             else if(cond.includes('rain') || cond.includes('drizzle')) wIcon.className = 'fa-solid fa-cloud-rain';
@@ -207,13 +262,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderResults(data, preferredBudget) {
         document.getElementById('res-destination').textContent = data.destination;
 
-        // 1. Render Packages
         const packagesContainer = document.getElementById('packages-container');
         packagesContainer.innerHTML = '';
         
         data.packages.forEach(pkg => {
             const isPreferred = pkg.id === preferredBudget;
-            
             const card = document.createElement('div');
             card.className = `package-card ${isPreferred ? 'selected' : ''}`;
             if(isPreferred) {
@@ -239,22 +292,18 @@ document.addEventListener('DOMContentLoaded', () => {
             packagesContainer.appendChild(card);
         });
 
-        // Add event listeners to package buttons to switch to itinerary tab
         document.querySelectorAll('.select-pkg-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const pkgId = e.target.getAttribute('data-id');
                 const selectedPkg = data.packages.find(p => p.id === pkgId);
                 renderItinerary(selectedPkg.itinerary);
-                // switch tab
                 switchTab('itinerary');
             });
         });
 
-        // Initially render itinerary for the preferred budget package
         const defaultPkg = data.packages.find(p => p.id === preferredBudget) || data.packages[0];
         renderItinerary(defaultPkg.itinerary);
 
-        // 2. Render Must Visits
         const mustVisitsList = document.getElementById('must-visits-list');
         mustVisitsList.innerHTML = '';
         data.mustVisits.forEach(v => {
@@ -267,18 +316,20 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         });
 
-        // 3. Render Guides
         document.getElementById('guide-culture').textContent = data.localGuide.culture;
         document.getElementById('guide-food').textContent = data.localGuide.food;
         document.getElementById('guide-safety').textContent = data.localGuide.safety;
         document.getElementById('guide-language').textContent = data.localGuide.language;
         document.getElementById('guide-currency').textContent = data.localGuide.currency;
 
-        // 4. Store globally for map / chat / calendar
-        _tripData = data;
-        _mapInitialised = false; // reset so map re-inits for new trips
+        // Render Travel Intel
+        renderTravelIntel(data.intel, data.destination);
+        initCurrencyConverter('USD', data.localGuide.currency);
+        initAQI(data.lat, data.lon);
 
-        // 5. Wire calendar export buttons (header + itinerary toolbar)
+        _tripData = data;
+        _mapInitialised = false;
+
         ['cal-google-btn','it-google-btn'].forEach(id => {
             const el = document.getElementById(id);
             if (el) el.onclick = () => exportToGoogleCalendar(data);
@@ -287,6 +338,142 @@ document.addEventListener('DOMContentLoaded', () => {
             const el = document.getElementById(id);
             if (el) el.onclick = () => exportToICS(data);
         });
+    }
+
+    function renderTravelIntel(intel, destination) {
+        // Best Time
+        document.getElementById('intel-best-months').textContent = intel.bestTime.months;
+        document.getElementById('intel-best-advice').textContent = intel.bestTime.advice;
+
+        // Timezone
+        if (_clockInterval) clearInterval(_clockInterval);
+        _clockInterval = setInterval(() => {
+            const timeStr = new Date().toLocaleTimeString('en-US', { timeZone: intel.timezone, hour12: false });
+            document.getElementById('intel-local-time').textContent = timeStr;
+        }, 1000);
+
+        // Spend Grid
+        const spendGrid = document.getElementById('intel-spend-grid');
+        spendGrid.innerHTML = `
+            <div class="spend-item"><span class="spend-label">Budget</span><span class="spend-val">${intel.spend.low}</span></div>
+            <div class="spend-item"><span class="spend-label">Mid-Range</span><span class="spend-val">${intel.spend.mid}</span></div>
+            <div class="spend-item"><span class="spend-label">Luxury</span><span class="spend-val">${intel.spend.high}</span></div>
+        `;
+
+        // Utilities
+        const utilList = document.getElementById('intel-util-list');
+        utilList.innerHTML = `
+            <div class="util-item">
+                <div class="util-icon"><i class="fa-solid fa-plug"></i></div>
+                <div class="util-text"><h4>Power</h4><p>${intel.utilities.power}</p></div>
+            </div>
+            <div class="util-item">
+                <div class="util-icon"><i class="fa-solid fa-droplet"></i></div>
+                <div class="util-text"><h4>Water</h4><p>${intel.utilities.water}</p></div>
+            </div>
+        `;
+        document.getElementById('intel-sim-guide').textContent = intel.utilities.sim;
+
+        // Emergency
+        const emGrid = document.getElementById('intel-emergency-grid');
+        emGrid.innerHTML = '';
+        for (const [key, val] of Object.entries(intel.emergency)) {
+            emGrid.innerHTML += `<div class="emergency-item"><small>${key}</small><strong>${val}</strong></div>`;
+        }
+
+        // Apps
+        const appsGrid = document.getElementById('intel-apps-grid');
+        appsGrid.innerHTML = '';
+        intel.apps.forEach(app => {
+            appsGrid.innerHTML += `<div class="app-card"><strong><i class="fa-solid fa-circle-check"></i> ${app.name}</strong><p>${app.usage}</p></div>`;
+        });
+
+        // Scams
+        const scamList = document.getElementById('intel-scam-list');
+        scamList.innerHTML = '';
+        intel.scams.forEach(s => {
+            scamList.innerHTML += `<div class="scam-item"><h4>${s.title}</h4><p>${s.desc}</p></div>`;
+        });
+
+        // Tips Carousel
+        startTipsCarousel(intel.tips);
+    }
+
+    async function initCurrencyConverter(from, toRaw) {
+        // Simple regex to extract ISO code if possible, e.g. "Japanese Yen (¥)" -> "JPY" is hard, 
+        // so we'll look for keywords or use a fallback.
+        const currTo = document.getElementById('curr-to-sym');
+        const currVal = document.getElementById('curr-to-val');
+        const amountInput = document.getElementById('curr-amount');
+        
+        // Map common names to ISO codes
+        const currMap = { "Yen": "JPY", "Euro": "EUR", "Pound": "GBP", "Rupee": "INR", "Baht": "THB", "Dollar": "USD", "Peso": "MXN", "Real": "BRL", "Franc": "CHF" };
+        let toISO = "EUR"; // default
+        for (const [name, code] of Object.entries(currMap)) {
+            if (toRaw.includes(name)) { toISO = code; break; }
+        }
+        
+        document.getElementById('curr-from').textContent = "USD";
+        currTo.textContent = toISO;
+
+        async function updateRate() {
+            try {
+                const res = await fetch(`https://api.frankfurter.app/latest?amount=${amountInput.value}&from=USD&to=${toISO}`);
+                const data = await res.json();
+                currVal.textContent = data.rates[toISO].toFixed(2);
+            } catch(e) { currVal.textContent = "??"; }
+        }
+
+        amountInput.addEventListener('input', updateRate);
+        updateRate();
+    }
+
+    async function initAQI(lat, lon) {
+        const aqiEl = document.getElementById('intel-aqi');
+        try {
+            const res = await fetch(`https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${lat}&longitude=${lon}&current=us_aqi`);
+            const data = await res.json();
+            const aqi = data.current.us_aqi;
+            let label = "Good";
+            if (aqi > 50) label = "Fair";
+            if (aqi > 100) label = "Poor";
+            aqiEl.textContent = `${aqi} (${label})`;
+        } catch(e) { aqiEl.textContent = "N/A"; }
+    }
+
+    function startTipsCarousel(tips) {
+        const container = document.getElementById('tips-container');
+        const dotsContainer = document.getElementById('tips-dots');
+        container.innerHTML = '';
+        dotsContainer.innerHTML = '';
+        if (_tipsInterval) clearInterval(_tipsInterval);
+
+        tips.forEach((tip, i) => {
+            const slide = document.createElement('div');
+            slide.className = `tip-slide ${i === 0 ? 'active' : ''}`;
+            slide.textContent = `"${tip}"`;
+            container.appendChild(slide);
+
+            const dot = document.createElement('div');
+            dot.className = `tip-dot ${i === 0 ? 'active' : ''}`;
+            dot.addEventListener('click', () => showTip(i));
+            dotsContainer.appendChild(dot);
+        });
+
+        let current = 0;
+        function showTip(index) {
+            const slides = document.querySelectorAll('.tip-slide');
+            const dots = document.querySelectorAll('.tip-dot');
+            slides[current].classList.remove('active');
+            dots[current].classList.remove('active');
+            current = index;
+            slides[current].classList.add('active');
+            dots[current].classList.add('active');
+        }
+
+        _tipsInterval = setInterval(() => {
+            showTip((current + 1) % tips.length);
+        }, 4000);
     }
 
     function renderItinerary(itinerary) {
@@ -327,7 +514,6 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             switchTab(btn.dataset.tab);
             if (btn.dataset.tab === 'map' && !_mapInitialised && _tripData) {
-                // slight delay so the pane is visible before Leaflet measures it
                 setTimeout(() => initMap(_tripData), 80);
             }
         });
@@ -377,7 +563,6 @@ document.addEventListener('DOMContentLoaded', () => {
             maxZoom: 19
         }).addTo(_leafletMap);
 
-        // Gold pin SVG for destination centre
         const goldIcon = L.divIcon({
             className: '',
             html: `<div style="font-size:2rem;filter:drop-shadow(0 0 8px #d4af37);line-height:1;">📍</div>`,
@@ -389,7 +574,6 @@ document.addEventListener('DOMContentLoaded', () => {
             .bindPopup(`<strong>${data.destination}</strong><br>Your destination`)
             .openPopup();
 
-        // Attraction markers
         const legend = document.getElementById('map-legend');
         if (legend) legend.innerHTML =
             `<span><span class="map-legend-dot" style="background:#d4af37"></span>Destination</span>` +
@@ -397,7 +581,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (data.mustVisits && data.mustVisits.length) {
             data.mustVisits.forEach((place, i) => {
-                // Offset markers slightly around centre if no exact coords
                 const offsetLat = lat + (Math.random() - 0.5) * 0.04;
                 const offsetLon = lon + (Math.random() - 0.5) * 0.04;
                 const attrIcon = L.divIcon({

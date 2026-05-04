@@ -45,7 +45,26 @@ CULTURE_DB = {
     "Argentina": {"food": "Asado, Empanadas, Alfajores", "culture": "Dinner is very late (10 PM). Mate (tea) sharing is common.", "safety": "Watch for pickpockets in Buenos Aires.", "mult": 0.7, "language": "Spanish • Hello: Hola", "currency": "Argentine Peso ($)"},
     "Peru": {"food": "Ceviche, Lomo Saltado, Cuy", "culture": "Very proud of their Incan heritage. Altitude acclimation needed.", "safety": "Use registered taxis. Drink bottled water.", "mult": 0.6, "language": "Spanish • Hello: Hola", "currency": "Peruvian Sol (PEN)"},
     "Australia": {"food": "Meat Pies, Vegemite on Toast, Tim Tams", "culture": "Very laid-back ('No worries'). Strong coffee culture.", "safety": "Sun is extremely harsh (wear SPF). Swim between the flags.", "mult": 1.6, "language": "English", "currency": "Australian Dollar (AUD)"},
-    "New Zealand": {"food": "Hangi, Fish and Chips, Pavlova", "culture": "Very eco-conscious. Māori culture is highly respected.", "safety": "Extremely safe. Weather can change rapidly.", "mult": 1.5, "language": "English, Māori", "currency": "New Zealand Dollar (NZD)"}
+    "New Zealand": {"food": "Hangi, Fish and Chips, Pavlova", "culture": "Very eco-conscious. Māori culture is highly respected.", "safety": "Extremely safe. Weather can change rapidly.", "mult": 1.5, "language": "English, Māori", "currency": "New Zealand Dollar (NZD)"},
+    "Singapore": {"food": "Hainanese Chicken Rice, Chili Crab, Laksa", "culture": "Efficiency-driven and extremely orderly. Respect for laws is paramount.", "safety": "One of the safest cities in the world. Strict on littering.", "mult": 1.6, "language": "English, Mandarin, Malay, Tamil", "currency": "Singapore Dollar (SGD)"},
+    "Malaysia": {"food": "Nasi Lemak, Satay, Roti Canai", "culture": "Multi-ethnic and religious. Dress modestly in rural areas.", "safety": "Generally safe. Use ride-hailing apps like Grab.", "mult": 0.6, "language": "Malay, English", "currency": "Malaysian Ringgit (MYR)"},
+    "Philippines": {"food": "Adobo, Sinigang, Lechon", "culture": "Very hospitable and music-loving. Respect for elders (Mano Po).", "safety": "Stick to tourist hubs. Use official transport.", "mult": 0.5, "language": "Filipino, English", "currency": "Philippine Peso (PHP)"},
+    "Israel": {"food": "Hummus, Falafel, Shakshuka", "culture": "Direct communication. Shabbat (Friday sunset to Saturday sunset) is a rest day.", "safety": "High security awareness. Follow local guidelines.", "mult": 1.4, "language": "Hebrew, Arabic", "currency": "Israeli Shekel (ILS)"},
+    "Norway": {"food": "Smoked Salmon, Brown Cheese, Reindeer meat", "culture": "Love for the outdoors (Friluftsliv). Very egalitarian and reserved.", "safety": "Extremely safe. Nature is the biggest hazard; dress for the cold.", "mult": 2.1, "language": "Norwegian • Hello: Hallo", "currency": "Norwegian Krone (NOK)"},
+    "Sweden": {"food": "Meatballs with Lingonberries, Gravlax, Fika (coffee break)", "culture": "Value for consensus and equality (Lagom). Fika is a daily ritual.", "safety": "Very safe. Observe recycling rules and avoid being loud in public.", "mult": 1.7, "language": "Swedish • Hello: Hej", "currency": "Swedish Krona (SEK)"},
+    "Denmark": {"food": "Smørrebrød (open sandwiches), Danish pastries, Hot Dogs", "culture": "Focused on coziness and well-being (Hygge). Cycling is life.", "safety": "Extremely safe. Use bike lanes and follow traffic signals strictly.", "mult": 1.8, "language": "Danish • Hello: Hej", "currency": "Danish Krone (DKK)"},
+    "Poland": {"food": "Pierogi, Kielbasa, Bigos (Hunter's Stew)", "culture": "Hospitality and history are key. Poles are proud of their heritage.", "safety": "Generally very safe. Watch for traffic and crosswalk rules.", "mult": 0.8, "language": "Polish • Hello: Cześć", "currency": "Polish Złoty (PLN)"},
+    "Czech Republic": {"food": "Goulash, Svíčková, Fried Cheese, World-class beer", "culture": "Appreciation for arts and history. Tipping (10%) is standard.", "safety": "Safe, but watch for pickpockets in Prague's Old Town.", "mult": 0.9, "language": "Czech • Hello: Ahoj", "currency": "Czech Koruna (CZK)"},
+    "Hungary": {"food": "Goulash, Lángos, Dobos Tort (Cake)", "culture": "Rich bathing culture (thermal baths). High regard for music and wine.", "safety": "Safe. Use official taxis and check prices in tourist restaurants.", "mult": 0.7, "language": "Hungarian • Hello: Szia", "currency": "Hungarian Forint (HUF)"},
+    "Austria": {"food": "Wiener Schnitzel, Sachertorte, Apple Strudel", "culture": "Polite and formal. Respect for classical music and mountain traditions.", "safety": "Extremely safe. Be careful during mountain activities.", "mult": 1.5, "language": "German • Hello: Servus", "currency": "Euro (€)"},
+    "Argentina": {"food": "Asado (BBQ), Empanadas, Alfajores", "culture": "Passionate about football and tango. Dinner is very late (9PM+).", "safety": "Standard urban awareness. Stick to well-lit areas in Buenos Aires.", "mult": 0.8, "language": "Spanish • Hello: Hola", "currency": "Argentine Peso ($)"},
+    "Chile": {"food": "Pastel de Choclo, Empanadas de Pino, Ceviche", "culture": "Polite and focused on community. National pride in poets like Neruda.", "safety": "Safe, but be cautious of earthquakes and pickpockets in Santiago.", "mult": 1.0, "language": "Spanish • Hello: Hola", "currency": "Chilean Peso ($)"},
+    "Peru": {"food": "Ceviche, Lomo Saltado, Cuy (Guinea Pig)", "culture": "Proud Incan heritage. Respect for the Earth (Pachamama).", "safety": "Use registered taxis. Altitude sickness is common in the Andes.", "mult": 0.7, "language": "Spanish • Hello: Hola", "currency": "Peruvian Sol (S/.)"},
+    "Colombia": {"food": "Bandeja Paisa, Arepas, Ajiaco", "culture": "Extremely warm and musical. Value for family and resilience.", "safety": "Major improvements. Stick to tourist areas; avoid 'no-go' zones.", "mult": 0.7, "language": "Spanish • Hello: Hola", "currency": "Colombian Peso ($)"},
+    "Morocco": {"food": "Tagine, Couscous, Harira soup", "culture": "Hospitality involves mint tea. Modest dress is required in many areas.", "safety": "Safe, but beware of aggressive vendors in the souks.", "mult": 0.6, "language": "Arabic, French • Hello: Salam", "currency": "Moroccan Dirham (MAD)"},
+    "Kenya": {"food": "Ugali, Nyama Choma (Roasted meat), Pilau", "culture": "Warm and diverse. Respect for wildlife and tribal traditions.", "safety": "Stick to guided safaris and safe neighborhoods in Nairobi.", "mult": 0.7, "language": "Swahili, English • Hello: Jambo", "currency": "Kenyan Shilling (KSh)"},
+    "Taiwan": {"food": "Beef Noodle Soup, Bubble Tea, Xiaolongbao", "culture": "Extremely polite and hospitable. High respect for temples and elders.", "safety": "Extremely safe even at night. Great public transit.", "mult": 1.2, "language": "Mandarin • Hello: Nǐ hǎo", "currency": "New Taiwan Dollar (TWD)"},
+    "Saudi Arabia": {"food": "Kabsa, Mandi, Arabic Coffee & Dates", "culture": "Conservative and deeply religious. Respect for Islamic laws is mandatory.", "safety": "Very safe. Be mindful of strict cultural codes and prayer times.", "mult": 1.5, "language": "Arabic • Hello: Marhaba", "currency": "Saudi Riyal (SAR)"}
 }
 
 FAMOUS_LANDMARKS = {
@@ -104,11 +123,20 @@ FAMOUS_LANDMARKS = {
     "rio": ["Christ the Redeemer", "Sugarloaf Mountain", "Copacabana Beach", "Ipanema Beach"],
     "rio de janeiro": ["Christ the Redeemer", "Sugarloaf Mountain", "Copacabana Beach"],
     "buenos aires": ["Teatro Colón", "La Boca", "Casa Rosada", "Recoleta Cemetery"],
-    "lima": ["Plaza Mayor", "Huaca Pucllana", "Larco Museum"],
-    "sydney": ["Sydney Opera House", "Sydney Harbour Bridge", "Bondi Beach", "Taronga Zoo"],
-    "melbourne": ["Federation Square", "Royal Botanic Gardens", "Great Ocean Road", "Melbourne Cricket Ground"],
-    "cape town": ["Table Mountain", "Cape of Good Hope", "Kirstenbosch Botanical Gardens", "Robben Island"],
-    "marrakech": ["Jemaa el-Fnaa", "Majorelle Garden", "Koutoubia", "Bahia Palace"],
+    "santiago": ["San Cristóbal Hill", "Plaza de Armas", "La Chascona", "Cajón del Maipo"],
+    "lima": ["Plaza Mayor", "Huaca Pucllana", "Larco Museum", "Magic Water Circuit"],
+    "bogota": ["Monserrate", "Gold Museum", "La Candelaria", "Botero Museum"],
+    "oslo": ["Vigeland Park", "Viking Ship Museum", "Opera House", "Holmenkollen"],
+    "stockholm": ["Vasa Museum", "Gamla Stan", "Skansen", "ABBA The Museum"],
+    "copenhagen": ["The Little Mermaid", "Tivoli Gardens", "Nyhavn", "Amalienborg"],
+    "prague": ["Charles Bridge", "Prague Castle", "Old Town Square", "Astronomical Clock"],
+    "vienna": ["Schönbrunn Palace", "St. Stephen's Cathedral", "Hofburg", "Belvedere"],
+    "budapest": ["Parliament Building", "Buda Castle", "Fisherman's Bastion", "Széchenyi Baths"],
+    "warsaw": ["Old Town Market Square", "Royal Castle", "Łazienki Park", "Palace of Culture"],
+    "nairobi": ["Nairobi National Park", "Giraffe Centre", "David Sheldrick Wildlife Trust"],
+    "marrakesh": ["Jemaa el-Fnaa", "Majorelle Garden", "Bahia Palace", "Koutoubia"],
+    "taipei": ["Taipei 101", "National Palace Museum", "Shilin Night Market", "Elephant Mountain"],
+    "riyadh": ["Kingdom Centre", "Masmak Fortress", "Diriyah", "National Museum"],
     
     # Famous Regions/Landmarks (Direct search)
     "machu picchu": ["Machu Picchu Citadel", "Temple of the Sun", "Huayna Picchu"],
@@ -140,7 +168,178 @@ FAMOUS_LANDMARKS = {
     "switzerland": ["The Matterhorn", "Lake Geneva", "Jungfraujoch", "Château de Chillon"],
     "portugal": ["Belém Tower", "Pena Palace", "Algarve Coast", "Douro Valley"],
     "ireland": ["Cliffs of Moher", "Ring of Kerry", "Guinness Storehouse", "Blarney Castle"],
-    "new zealand": ["Milford Sound", "Hobbiton Movie Set", "Tongariro National Park", "Fiordland"]
+    "new zealand": ["Milford Sound", "Hobbiton Movie Set", "Tongariro National Park", "Waitomo Caves"],
+    "malaysia": ["Petronas Twin Towers", "Batu Caves", "Langkawi Archipelago", "Mount Kinabalu"],
+    "philippines": ["El Nido (Palawan)", "Chocolate Hills", "Boracay White Beach"],
+    "austria": ["Schönbrunn Palace", "Hallstatt", "Salzburg Old Town"],
+    "norway": ["Geirangerfjord", "Lofoten Islands", "Trolltunga", "The Northern Lights"],
+    "sweden": ["Vasa Museum", "Stockholm Archipelago", "Ice Hotel", "Turning Torso"],
+    "denmark": ["Tivoli Gardens", "Legoland", "The Little Mermaid", "Nyhavn"],
+    "poland": ["Auschwitz-Birkenau", "Wieliczka Salt Mine", "Wawel Castle"],
+    "czech republic": ["Prague Castle", "Charles Bridge", "Kutná Hora"],
+    "hungary": ["Parliament Building", "Lake Balaton", "Thermal Baths"],
+    "argentina": ["Iguazu Falls", "Perito Moreno Glacier", "La Boca"],
+    "chile": ["Torres del Paine", "Atacama Desert", "Easter Island"],
+    "peru": ["Machu Picchu", "Nazca Lines", "Lake Titicaca"],
+    "colombia": ["Cartagena Old Town", "Tayrona Park", "Coffee Triangle"],
+    "morocco": ["Sahara Desert", "Chefchaouen", "Atlas Mountains"],
+    "kenya": ["Maasai Mara", "Mount Kenya", "Diani Beach"],
+    "taiwan": ["Taroko Gorge", "Alishan", "Sun Moon Lake"],
+    "saudi arabia": ["Al-Ula", "Edge of the World", "Red Sea Project"]
+}
+
+# ─── NEW TRAVEL INTEL DATABASES ───────────────────────────────────
+
+BEST_TIME_DB = {
+    "Japan": {"months": "Mar-May, Oct-Nov", "advice": "Spring for cherry blossoms, Autumn for foliage. Avoid June (rain) and Aug (heat)."},
+    "France": {"months": "Apr-Jun, Sep-Oct", "advice": "Spring and Autumn offer mild weather and fewer crowds than July/August."},
+    "Italy": {"months": "Apr-Jun, Sep-Oct", "advice": "Perfect temperatures. July/August can be sweltering and extremely crowded."},
+    "Thailand": {"months": "Nov-Feb", "advice": "Cool and dry season. Avoid Sep-Oct due to heavy monsoon rains."},
+    "India": {"months": "Oct-Mar", "advice": "Best weather for most regions. Apr-Jun is extremely hot; Jul-Sep is monsoon."},
+    "USA": {"months": "Apr-Jun, Sep-Oct", "advice": "Spring and Fall are ideal for most states. Summer is peak but hot."},
+    "United Kingdom": {"months": "May-Sep", "advice": "Warmest months and longest daylight hours. Be ready for rain anytime."},
+    "UAE": {"months": "Nov-Mar", "advice": "Pleasant outdoor weather. Avoid Jun-Sep as temperatures exceed 40°C."},
+    "Turkey": {"months": "Apr-May, Sep-Oct", "advice": "Ideal for exploring ruins and cities. Summer is great for beaches."},
+    "Greece": {"months": "May-Jun, Sep-Oct", "advice": "Great weather, everything is open, and prices are lower than August."},
+    "Mexico": {"months": "Dec-Apr", "advice": "Dry season. May-Nov is rainy and hurricane season on the coasts."},
+    "Brazil": {"months": "Sep-Nov, Mar-May", "advice": "Avoid peak summer heat and humidity if you aren't there for Carnival."},
+    "Egypt": {"months": "Oct-Apr", "advice": "Ideal for monuments. May-Sep is dangerously hot in the desert."},
+    "Australia": {"months": "Sep-Nov, Mar-May", "advice": "Spring and Autumn. Note that seasons are reversed (Summer is Dec-Feb)."},
+    "Spain": {"months": "Apr-Jun, Sep-Oct", "advice": "Ideal for sightseeing. July/August is very hot, especially in the south."},
+    "Canada": {"months": "Jun-Aug, Sep-Oct", "advice": "Summer for hiking and festivals. Fall for spectacular foliage."},
+    "Singapore": {"months": "Feb-Apr", "advice": "Slightly less rain. It is humid and tropical year-round."},
+    "Germany": {"months": "May-Sep, Dec", "advice": "Summer for gardens and beer festivals. December for Christmas Markets."},
+    "Switzerland": {"months": "Jun-Sep, Dec-Mar", "advice": "Summer for hiking; Winter for world-class skiing and cozy chalets."},
+    "South Korea": {"months": "Apr-Jun, Sep-Nov", "advice": "Cherry blossoms in Spring, vibrant colors in Autumn. Avoid July/August (monsoon/heat)."},
+    "Vietnam": {"months": "Nov-Apr", "advice": "Dry season for most of the country. North can be chilly in Jan/Feb."},
+    "Indonesia": {"months": "May-Sep", "advice": "Dry season. Perfect for Bali and island hopping. Oct-Apr is rainy."},
+    "Portugal": {"months": "Mar-May, Sep-Oct", "advice": "Pleasant weather, great for coastal walks and wine tasting."},
+    "Maldives": {"months": "Nov-Apr", "advice": "Peak dry season. Clear blue skies and perfect for diving."},
+    "Netherlands": {"months": "Apr-May, Jun-Aug", "advice": "April/May for tulips. Summer for cycling and canal festivals."},
+    "Norway": {"months": "Jun-Aug, Dec-Mar", "advice": "Summer for fjords and hiking; Winter for Northern Lights and skiing."},
+    "Sweden": {"months": "Jun-Aug, Dec-Mar", "advice": "Summer for Stockholm archipelago; Winter for Lapland and skiing."},
+    "Denmark": {"months": "May-Aug, Dec", "advice": "Summer for beaches and cycling. December for Christmas markets."},
+    "Poland": {"months": "May-Jun, Sep-Oct", "advice": "Spring and Fall offer mild weather and beautiful landscapes."},
+    "Czech Republic": {"months": "May-Sep, Dec", "advice": "Summer for festivals. December for magical Christmas markets."},
+    "Hungary": {"months": "May-Jun, Sep-Oct", "advice": "Ideal for exploring Budapest and the wine regions."},
+    "Austria": {"months": "Jun-Aug, Dec-Mar", "advice": "Summer for lakes and hiking; Winter for world-class skiing."},
+    "Argentina": {"months": "Oct-Dec, Mar-May", "advice": "Spring and Autumn. Note that Patagonia is best in Summer (Dec-Feb)."},
+    "Chile": {"months": "Oct-Apr", "advice": "Best time for hiking in Patagonia and exploring Santiago."},
+    "Peru": {"months": "May-Sep", "advice": "Dry season in the Andes. Perfect for Machu Picchu and trekking."},
+    "Colombia": {"months": "Dec-Mar", "advice": "Dry season. Ideal for Caribbean beaches and Coffee Region."},
+    "Morocco": {"months": "Mar-May, Sep-Nov", "advice": "Pleasant temperatures for exploring cities and the desert."},
+    "Kenya": {"months": "Jul-Oct, Jan-Feb", "advice": "Great Migration occurs Jul-Oct. Dry season is best for safaris."},
+    "Taiwan": {"months": "Oct-Apr", "advice": "Cooler and drier weather. Spring for cherry blossoms."},
+    "Saudi Arabia": {"months": "Nov-Mar", "advice": "Coolest months. Avoid summer heat (May-Sep)."}
+}
+
+TIMEZONE_DB = {
+    "Japan": "Asia/Tokyo", "France": "Europe/Paris", "Italy": "Europe/Rome", "Thailand": "Asia/Bangkok",
+    "India": "Asia/Kolkata", "USA": "America/New_York", "United Kingdom": "Europe/London", "UAE": "Asia/Dubai",
+    "Turkey": "Europe/Istanbul", "Greece": "Europe/Athens", "Mexico": "America/Mexico_City", "Brazil": "America/Sao_Paulo",
+    "Egypt": "Africa/Cairo", "Australia": "Australia/Sydney", "Canada": "America/Toronto", "Spain": "Europe/Madrid",
+    "Singapore": "Asia/Singapore", "Germany": "Europe/Berlin", "Switzerland": "Europe/Zurich", "South Korea": "Asia/Seoul",
+    "Vietnam": "Asia/Ho_Chi_Minh", "Indonesia": "Asia/Jakarta", "Portugal": "Europe/Lisbon", "Maldives": "Indian/Maldives",
+    "Netherlands": "Europe/Amsterdam", "South Africa": "Africa/Johannesburg", "New Zealand": "Pacific/Auckland",
+    "Norway": "Europe/Oslo", "Sweden": "Europe/Stockholm", "Denmark": "Europe/Copenhagen", "Poland": "Europe/Warsaw",
+    "Czech Republic": "Europe/Prague", "Hungary": "Europe/Budapest", "Austria": "Europe/Vienna", "Argentina": "America/Argentina/Buenos_Aires",
+    "Chile": "America/Santiago", "Peru": "America/Lima", "Colombia": "America/Bogota", "Morocco": "Africa/Casablanca",
+    "Kenya": "Africa/Nairobi", "Taiwan": "Asia/Taipei", "Saudi Arabia": "Asia/Riyadh"
+}
+
+SCAM_DB = {
+    "Japan": [{"title": "Overpriced Bars", "desc": "Touts in Roppongi/Kabukicho may lure you into bars with 'cheap' drinks but hit you with huge hidden fees."}],
+    "France": [{"title": "The Friendship Bracelet", "desc": "Someone tries to tie a string around your finger in Montmartre and then demands payment."}],
+    "Italy": [{"title": "Helpful Luggage Carriers", "desc": "Random people at stations grab your bags to 'help' and then demand a high tip."}],
+    "Thailand": [{"title": "Grand Palace is Closed", "desc": "Tuk-tuk drivers tell you the Palace is closed for a holiday to take you to overpriced gem shops."}],
+    "India": [{"title": "The Fake Tourist Office", "desc": "Drivers claim your hotel is closed/full and take you to a 'government' agency to rebook at 5x price."}],
+    "Turkey": [{"title": "The Shoe Brusher", "desc": "A brusher drops their brush, you pick it up, they 'thank' you with a brush and then charge you."}],
+    "Spain": [{"title": "Bird Dropping Scam", "desc": "Someone sprays a substance on you, offers to clean it, and picks your pocket in the process."}],
+    "Vietnam": [{"title": "The Coconut Guy", "desc": "Someone puts a coconut yoke on your shoulder for a photo, then demands a huge fee."}],
+    "USA": [{"title": "CD Handout", "desc": "In NYC/LA, people hand you a 'free' CD, then aggressively demand a 'donation' once it's in your hand."}],
+    "Egypt": [{"title": "Free Camel Ride", "desc": "Getting on the camel is 'free', but you have to pay a massive fee to get down."}],
+    "Morocco": [{"title": "The Henna Scam", "desc": "Women aggressively grab your hand to start a henna tattoo and then demand payment for the 'service'."}],
+    "Czech Republic": [{"title": "Currency Exchange Trap", "desc": "Unofficial exchange booths offer poor rates or huge fees hidden in fine print."}],
+    "Hungary": [{"title": "Overpriced Menu", "desc": "Restaurants in tourist areas may show a cheap menu outside but charge much higher prices inside."}],
+    "Argentina": [{"title": "The Mustard Scam", "desc": "Someone 'accidentally' spills mustard on you, helps you clean up, and pickpockets you."}]
+}
+
+APPS_DB = {
+    "Japan": [{"name": "Google Maps", "usage": "Best for complex train navigation."}, {"name": "Google Translate", "usage": "Camera mode for menus."}],
+    "Thailand": [{"name": "Grab", "usage": "Essential for fair-priced taxis and bikes."}, {"name": "Klook", "usage": "Discounted attraction tickets."}],
+    "India": [{"name": "Ola/Uber", "usage": "Avoid rickshaw bargaining."}, {"name": "Zomato", "usage": "Top food delivery and reviews."}],
+    "France": [{"name": "Citymapper", "usage": "Best for Paris Metro."}, {"name": "TheFork", "usage": "Restaurant reservations and discounts."}],
+    "USA": [{"name": "Uber/Lyft", "usage": "Primary ride sharing."}, {"name": "Yelp", "usage": "Most reliable for food reviews."}],
+    "Singapore": [{"name": "Grab", "usage": "Standard for rides and food."}, {"name": "Citymapper", "usage": "Best for MRT/Bus routes."}],
+    "South Korea": [{"name": "Naver Maps", "usage": "Much better than Google Maps in Korea."}, {"name": "KakaoTaxi", "usage": "Leading taxi hailing app."}],
+    "Germany": [{"name": "DB Navigator", "usage": "Essential for train schedules and tickets."}, {"name": "FreeNow", "usage": "Main taxi app."}],
+    "Vietnam": [{"name": "Grab", "usage": "Cheapest and safest way to get around."}, {"name": "Zalo", "usage": "Local messaging app for bookings."}],
+    "Spain": [{"name": "Cabify", "usage": "Better and safer than local taxis."}, {"name": "Glovo", "usage": "Multi-category delivery."}],
+    "Norway": [{"name": "Vy", "usage": "Essential for train and bus tickets."}, {"name": "Ruter", "usage": "Best for Oslo public transport."}],
+    "Poland": [{"name": "Jakdojade", "usage": "Leading public transport planner."}, {"name": "Bolt", "usage": "Cheap and reliable ride sharing."}],
+    "Argentina": [{"name": "Cabify", "usage": "Safer alternative to street taxis."}, {"name": "PedidosYa", "usage": "Top food delivery service."}]
+}
+
+EMERGENCY_DB = {
+    "Japan": {"police": "110", "medical": "119"},
+    "France": {"police": "17", "medical": "15", "all": "112"},
+    "USA": {"all": "911"},
+    "UK": {"all": "999", "eu": "112"},
+    "Thailand": {"police": "191", "tourist_police": "1155"},
+    "India": {"all": "112"},
+    "Spain": {"all": "112"},
+    "Germany": {"police": "110", "medical": "112"},
+    "Singapore": {"police": "999", "medical": "995"},
+    "Australia": {"all": "000"},
+    "Canada": {"all": "911"},
+    "Switzerland": {"police": "117", "medical": "144", "all": "112"},
+    "Norway": {"police": "112", "medical": "113"},
+    "Poland": {"all": "112"},
+    "Argentina": {"police": "911", "medical": "107"},
+    "Kenya": {"all": "999"}
+}
+
+UTILITIES_DB = {
+    "Japan": {"power": "Type A/B, 100V", "water": "Tap water is safe", "sim": "Ubigi or Airalo (eSIM) recommended"},
+    "UK": {"power": "Type G, 230V", "water": "Tap water is safe", "sim": "EE or Vodafone (Pick up at airport)"},
+    "USA": {"power": "Type A/B, 120V", "water": "Tap water is safe", "sim": "T-Mobile Tourist Plan"},
+    "India": {"power": "Type C/D/M, 230V", "water": "Drink only bottled water", "sim": "Airtel or Jio (Requires Passport)"},
+    "Thailand": {"power": "Type A/B/C/O, 220V", "water": "Drink only bottled water", "sim": "AIS or TrueMove Tourist SIM"},
+    "France": {"power": "Type C/E, 230V", "water": "Tap water is safe", "sim": "Orange Holiday SIM"},
+    "Germany": {"power": "Type C/F, 230V", "water": "Tap water is safe", "sim": "Telekom or Vodafone"},
+    "Spain": {"power": "Type C/F, 230V", "water": "Tap water is safe", "sim": "Movistar or Orange"},
+    "Singapore": {"power": "Type G, 230V", "water": "Tap water is safe", "sim": "Singtel or StarHub (7-Eleven)"},
+    "Switzerland": {"power": "Type J, 230V", "water": "Tap water is world's best", "sim": "Swisscom or Salt"},
+    "Norway": {"power": "Type C/F, 230V", "water": "Tap water is high quality", "sim": "Telenor or Telia"},
+    "Argentina": {"power": "Type C/I, 220V", "water": "Drink bottled water in rural areas", "sim": "Claro or Personal"}
+}
+
+SPEND_DB = {
+    "Japan": {"low": "$45", "mid": "$95", "high": "$280+"},
+    "India": {"low": "$15", "mid": "$38", "high": "$130+"},
+    "France": {"low": "$55", "mid": "$120", "high": "$320+"},
+    "Thailand": {"low": "$22", "mid": "$48", "high": "$160+"},
+    "USA": {"low": "$65", "mid": "$150", "high": "$400+"},
+    "UK": {"low": "$60", "mid": "$140", "high": "$350+"},
+    "Singapore": {"low": "$50", "mid": "$115", "high": "$300+"},
+    "Switzerland": {"low": "$80", "mid": "$180", "high": "$450+"},
+    "Vietnam": {"low": "$18", "mid": "$35", "high": "$110+"},
+    "Spain": {"low": "$45", "mid": "$90", "high": "$250+"},
+    "Norway": {"low": "$90", "mid": "$200", "high": "$500+"},
+    "Poland": {"low": "$35", "mid": "$75", "high": "$200+"},
+    "Argentina": {"low": "$25", "mid": "$60", "high": "$180+"}
+}
+
+TIPS_DB = {
+    "Japan": ["Don't tip at restaurants; it's considered rude.", "Carry a small bag for your trash; bins are rare.", "Stand on the left on escalators (except Osaka).", "Bowing is the standard way to greet."],
+    "India": ["Always carry small cash notes for local markets.", "Download offline maps for rural areas.", "Respect local dress codes at religious sites.", "Remove shoes before entering homes/temples."],
+    "France": ["Always say 'Bonjour' when entering a shop.", "Don't rush your meal; dining is an experience here.", "Validate your ticket before boarding trains.", "Tipping is appreciated but not mandatory."],
+    "Thailand": ["Never touch someone's head; it's considered sacred.", "Point with your chin or whole hand, not your finger.", "Dress modestly for temples (cover shoulders/knees)."],
+    "USA": ["Tipping 18-22% is standard in restaurants.", "Taxes are rarely included in the displayed price.", "Portion sizes are usually very large."],
+    "Singapore": ["Chewing gum is technically prohibited.", "Strict fines for littering and smoking in public.", "Use the MRT; it's one of the best in the world."],
+    "Switzerland": ["Water from public fountains is safe and delicious.", "Punctuality is extremely important for transport.", "Sunday is a day of rest; most shops are closed."],
+    "Norway": ["Tap water is among the cleanest in the world; don't buy plastic bottles.", "Alcohol is very expensive and sold only in Vinmonopolet shops.", "Tipping is not required but rounding up is nice."],
+    "Argentina": ["Be prepared for late dinners; restaurants often don't open until 8 PM.", "Blue Dollar refers to the unofficial exchange rate; research it.", "Always keep a small amount of cash for tips (propina)."]
 }
 
 
@@ -234,33 +433,62 @@ def get_location_data(dest):
 def generate_itinerary(dest, days, interests, places, signature_food):
     days_list = []
     
-    activities = []
-    for p in places:
-        activities.append(f"Visit the magnificent {p}.")
-        activities.append(f"Explore the area around {p}.")
-        
-    fallback = [
-         f"Enjoy a local culinary tour downtown.",
-         f"Explore historical landmarks in the morning.",
-         f"Spend the day doing outdoor activities (hiking/walking).",
-         f"Shopping and souvenir hunting in distinct neighborhoods.",
-         f"Sunset watching at a scenic viewpoint."
-    ]
-    activities.extend(fallback)
+    # Prioritize places that match interests
+    relevant_places = []
+    other_places = []
     
-    if interests:
-        activities.insert(0, f"Special activity focused on: {interests}")
+    interests_keywords = interests.lower().split() if interests else []
+    
+    for p in places:
+        if any(kw in p.lower() for kw in interests_keywords):
+            relevant_places.append(p)
+        else:
+            other_places.append(p)
+            
+    # Combine lists, putting relevant ones first
+    sorted_places = relevant_places + other_places
+    place_idx = 0
 
     for i in range(days):
-        food_suggestion = signature_food if i == 0 else "a highly rated local spot"
+        day_num = i + 1
+        activities = []
+        
+        if day_num == 1:
+            # Day 1: Arrival & First Landmark
+            activities.append(f"Arrive in {dest} and check into your accommodation.")
+            if sorted_places:
+                activities.append(f"Kick off your trip with a visit to the iconic {sorted_places[place_idx]}.")
+                place_idx = (place_idx + 1) % len(sorted_places)
+            else:
+                activities.append(f"Take a relaxing walk through the central district to soak in the atmosphere.")
+            activities.append(f"Welcome dinner: Try {signature_food} at a highly rated local tavern.")
+            
+        elif day_num == days:
+            # Last Day: Shopping & Farewell
+            activities.append("Enjoy a slow morning with a local breakfast and coffee.")
+            activities.append(f"Last-minute souvenir shopping in the artisanal markets of {dest}.")
+            activities.append(f"Farewell dinner: A grand multi-course meal featuring regional specialties.")
+            
+        else:
+            # Middle Days: Deep Dive
+            if sorted_places:
+                activities.append(f"Morning exploration of {sorted_places[place_idx]}.")
+                place_idx = (place_idx + 1) % len(sorted_places)
+                activities.append(f"Afternoon visit to {sorted_places[place_idx]}.")
+                place_idx = (place_idx + 1) % len(sorted_places)
+            else:
+                activities.append("Explore hidden gems and local neighborhoods off the beaten path.")
+                activities.append("Visit a local museum or cultural gallery.")
+            
+            if interests:
+                activities.append(f"Special interest activity: Focused on {interests}.")
+            else:
+                activities.append("Evening at leisure to discover the local nightlife or night markets.")
+
         days_list.append({
-            "day": i + 1,
-            "title": f"Day {i+1} Explorer",
-            "activities": [
-                 random.choice(activities),
-                 random.choice(activities),
-                 f"Dinner featuring {food_suggestion}."
-            ]
+            "day": day_num,
+            "title": f"Explore {dest} - Day {day_num}",
+            "activities": activities
         })
     return days_list
 
@@ -280,55 +508,76 @@ def plan_trip():
     places, country, lat, lon = get_location_data(dest)
     
     culture_info = CULTURE_DB.get(country, {
-        "food": f"Ask the locals in {country} for their top recommended regional dishes or specialty street food.",
-        "culture": f"Embrace the local {country} traditions. Read up on specific etiquette before you arrive to show respect.",
-        "safety": f"Maintain standard travel awareness while exploring {dest}. Keep valuables secure in crowded public areas.",
-        "language": f"National language of {country}. Consider learning basic greetings before you travel.",
-        "currency": f"Local {country} currency. We recommend researching the current exchange rate and keeping local cash on hand.",
-        "mult": 0.9
+        "food": f"Ask the locals in {country} for their top recommended regional dishes.",
+        "culture": f"Embrace the local {country} traditions and etiquette.",
+        "safety": f"Maintain standard travel awareness while exploring {dest}.",
+        "language": f"National language of {country}.",
+        "currency": f"Local {country} currency.",
+        "mult": 1.0
     })
 
     food_list = culture_info["food"].split(',')
     signature_food = food_list[0].strip() if food_list else "local delicacies"
-    base_cost = int(days * 100 * culture_info["mult"])
+    
+    # Realistic Pricing Logic
+    # We use SPEND_DB as a base if available, otherwise fallback to multiplier
+    spend_data = SPEND_DB.get(country, {"low": "$40", "mid": "$100", "high": "$300+"})
+    
+    def parse_cost(cost_str):
+        return int(cost_str.replace('$', '').replace('+', '').replace(',', '').strip())
+
+    base_daily_low = parse_cost(spend_data["low"])
+    base_daily_mid = parse_cost(spend_data["mid"])
+    base_daily_high = parse_cost(spend_data["high"])
+
+    # Calculate base costs (Accommodation + Food + Transit per day)
+    low_cost = int(days * base_daily_low)
+    mid_cost = int(days * base_daily_mid)
+    high_cost = int(days * base_daily_high)
+
+    # Add Flight Costs (Estimated)
+    flight_cost = 0
+    if flight_option != "none":
+        flight_cost = 400 if culture_info["mult"] < 1.0 else 800
+        if flight_option == "biz": flight_cost *= 4
+        elif flight_option == "econ": flight_cost *= 0.8
 
     packages = [
         {
             "id": "budget",
-            "name": "Low Budget",
-            "description": "Affordable travel keeping costs low.",
-            "estimatedCost": f"${base_cost}",
-            "hotel": "Hostels or 2-Star Hotels",
-            "flights": "Economy class, connecting flights",
-            "transportation": "Public transit (buses/subway)",
+            "name": "Essential Package",
+            "description": "Authentic experience focused on local life and value.",
+            "estimatedCost": f"${low_cost + int(flight_cost * 0.7)}",
+            "hotel": "Boutique Hostels or Eco-Lodges",
+            "flights": "Economy Class (Best Value)",
+            "transportation": "Public Transit & Walking Maps",
             "itinerary": generate_itinerary(dest, days, interests, places, signature_food)
         },
         {
             "id": "medium",
-            "name": "Medium Budget",
-            "description": "A comfortable balance of value and experience.",
-            "estimatedCost": f"${base_cost * 2}",
-            "hotel": "3 to 4-Star Hotels",
-            "flights": "Premium Economy, direct flights",
-            "transportation": "Ride-hailing apps & public transit",
+            "name": "Signature Collection",
+            "description": "The perfect balance of comfort, style, and exploration.",
+            "estimatedCost": f"${mid_cost + flight_cost}",
+            "hotel": "4-Star Character Hotels",
+            "flights": "Premium Economy / Direct",
+            "transportation": "Private Transfers & Ride-hailing",
             "itinerary": generate_itinerary(dest, days, interests, places, signature_food)
         },
         {
             "id": "high",
-            "name": "High Budget",
-            "description": "Luxury travel experience without compromises.",
-            "estimatedCost": f"${int(base_cost * 4.5)}",
-            "hotel": "5-Star Resorts",
-            "flights": "Business Class",
-            "transportation": "Private car service",
+            "name": "Royal Prestige",
+            "description": "Ultra-luxury experience with curated VIP access.",
+            "estimatedCost": f"${high_cost + int(flight_cost * 3)}",
+            "hotel": "5-Star Luxury Resorts",
+            "flights": "Business / First Class",
+            "transportation": "Chauffeur Driven Private Car",
             "itinerary": generate_itinerary(dest, days, interests, places, signature_food)
         }
     ]
     
     for pkg in packages:
         if hotel_choice:
-            pkg["hotel"] = f"{hotel_choice} (User Preferred)"
-        
+            pkg["hotel"] = f"{hotel_choice} (Preferred)"
         if flight_option == "none":
             pkg["flights"] = "N/A - Arranged by User"
         elif flight_option == "economy":
@@ -368,6 +617,18 @@ def plan_trip():
         "currency": culture_info.get("currency", "Local currency")
     }
 
+    # Fetch new travel intel
+    intel = {
+        "bestTime": BEST_TIME_DB.get(country, {"months": "Anytime", "advice": "Consult local weather forecasts for the best experience."}),
+        "timezone": TIMEZONE_DB.get(country, "UTC"),
+        "scams": SCAM_DB.get(country, [{"title": "General Awareness", "desc": "Stay alert in crowded tourist areas and use official transport."}]),
+        "apps": APPS_DB.get(country, [{"name": "Google Maps", "usage": "Navigation"}, {"name": "Google Translate", "usage": "Translation"}]),
+        "emergency": EMERGENCY_DB.get(country, {"all": "112"}),
+        "utilities": UTILITIES_DB.get(country, {"power": "Universal Adapter recommended", "water": "Drink bottled water", "sim": "Pick up at airport"}),
+        "spend": SPEND_DB.get(country, {"low": "$30", "mid": "$70", "high": "$200+"}),
+        "tips": TIPS_DB.get(country, ["Always respect local traditions.", "Learn basic greetings in the local language.", "Keep a digital copy of your documents."])
+    }
+
     return jsonify({
         "destination": dest,
         "days": days,
@@ -375,7 +636,8 @@ def plan_trip():
         "lon": lon,
         "packages": packages,
         "mustVisits": must_visits,
-        "localGuide": local_guide
+        "localGuide": local_guide,
+        "intel": intel
     })
 
 @app.route('/api/chat', methods=['POST'])

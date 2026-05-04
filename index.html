@@ -30,8 +30,18 @@
             <i class="fa-solid fa-gem"></i>
             <span>Dora Travel Agency</span>
         </div>
-        <div class="theme-toggle" id="theme-toggle" title="Toggle Theme">
-            <i class="fa-solid fa-moon"></i>
+        <div class="nav-right">
+            <div class="lang-selector">
+                <select id="lang-select" class="glass-select">
+                    <option value="en">English</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                </select>
+            </div>
+            <div class="theme-toggle" id="theme-toggle" title="Toggle Theme">
+                <i class="fa-solid fa-moon"></i>
+            </div>
         </div>
     </nav>
 
@@ -39,55 +49,55 @@
         <!-- VIEW 1: SEARCH FORM -->
         <section id="search-view" class="view active">
             <div class="hero-text">
-                <h1>Design Your Dream Trip with AI</h1>
-                <p>Enter your preferences and let our advanced AI assemble the perfect travel package and itinerary in seconds.</p>
+                <h1 data-t="hero_title">Design Your Dream Trip with AI</h1>
+                <p data-t="hero_desc">Enter your preferences and let our advanced AI assemble the perfect travel package and itinerary in seconds.</p>
             </div>
 
             <div class="search-card glass-panel fade-in-up">
                 <form id="trip-form">
                     <div class="form-group">
-                        <label for="destination"><i class="fa-solid fa-map-location-dot"></i> Destination</label>
+                        <label for="destination"><i class="fa-solid fa-map-location-dot"></i> <span data-t="label_dest">Destination</span></label>
                         <input type="text" id="destination" placeholder="e.g., Tokyo, Paris, Bali" required>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="days"><i class="fa-solid fa-calendar-days"></i> Duration (Days)</label>
+                            <label for="days"><i class="fa-solid fa-calendar-days"></i> <span data-t="label_days">Duration (Days)</span></label>
                             <input type="number" id="days" min="1" max="30" value="5" required>
                         </div>
                         <div class="form-group">
-                            <label for="budget"><i class="fa-solid fa-wallet"></i> Budget Profile</label>
+                            <label for="budget"><i class="fa-solid fa-wallet"></i> <span data-t="label_budget">Budget Profile</span></label>
                             <select id="budget" required>
-                                <option value="low">Budget Friendly</option>
-                                <option value="medium" selected>Balanced / Medium</option>
-                                <option value="high">Luxury</option>
+                                <option value="low" data-t="opt_budget_low">Budget Friendly</option>
+                                <option value="medium" selected data-t="opt_budget_mid">Balanced / Medium</option>
+                                <option value="high" data-t="opt_budget_high">Luxury</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="flight-option"><i class="fa-solid fa-plane"></i> Flight Preference</label>
+                            <label for="flight-option"><i class="fa-solid fa-plane"></i> <span data-t="label_flights">Flight Preference</span></label>
                             <select id="flight-option">
-                                <option value="any">Find Best Flights</option>
-                                <option value="none">No Flight Needed</option>
-                                <option value="economy">Economy Class Only</option>
-                                <option value="business">Business/First Class</option>
+                                <option value="any" data-t="opt_flight_any">Find Best Flights</option>
+                                <option value="none" data-t="opt_flight_none">No Flight Needed</option>
+                                <option value="economy" data-t="opt_flight_econ">Economy Class Only</option>
+                                <option value="business" data-t="opt_flight_biz">Business/First Class</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="hotel-choice"><i class="fa-solid fa-bed"></i> Preferred Hotel</label>
+                            <label for="hotel-choice"><i class="fa-solid fa-bed"></i> <span data-t="label_hotel">Preferred Hotel</span></label>
                             <input type="text" id="hotel-choice" placeholder="e.g., Hilton, Boutique, Airbnb">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="interests"><i class="fa-solid fa-heart"></i> Special Interests (Optional)</label>
+                        <label for="interests"><i class="fa-solid fa-heart"></i> <span data-t="label_interests">Special Interests (Optional)</span></label>
                         <input type="text" id="interests" placeholder="e.g., Food, History, Hiking, Nightlife">
                     </div>
 
                     <button type="submit" class="primary-btn pulse-glow">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Itinerary
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> <span data-t="btn_generate">Generate Itinerary</span>
                     </button>
                 </form>
             </div>
@@ -97,7 +107,7 @@
                  <div id="globeViz"></div>
                  <div id="destination-reveal" class="hidden">
                      <h1 id="cinematic-dest-name">Destination</h1>
-                     <p>Crafting your perfect itinerary...</p>
+                     <p data-t="loader_desc">Crafting your perfect itinerary...</p>
                  </div>
             </div>
         </section>
@@ -105,12 +115,12 @@
         <!-- VIEW 2: RESULTS DASHBOARD -->
         <section id="results-view" class="view hidden">
             <div class="dashboard-header">
-                <h2>Your trip to <span class="highlight" id="res-destination">Destination</span></h2>
+                <h2><span data-t="res_title">Your trip to</span> <span class="highlight" id="res-destination">Destination</span></h2>
                 <div style="display:flex; gap: 1rem; flex-wrap:wrap; align-items:center;">
-                    <button id="chat-toggle-btn" class="secondary-btn" title="AI Trip Assistant"><i class="fa-solid fa-comment-dots"></i> Ask AI</button>
-                    <button id="cal-google-btn" class="secondary-btn" title="Add to Google Calendar"><i class="fa-brands fa-google"></i> Google Cal</button>
-                    <button id="cal-ics-btn" class="secondary-btn" title="Download .ics for Apple Calendar"><i class="fa-solid fa-calendar-check"></i> Download .ics</button>
-                    <button id="new-search-btn" class="secondary-btn"><i class="fa-solid fa-arrow-left"></i> New Search</button>
+                    <button id="chat-toggle-btn" class="secondary-btn" title="AI Trip Assistant"><i class="fa-solid fa-comment-dots"></i> <span data-t="btn_ask_ai">Ask AI</span></button>
+                    <button id="cal-google-btn" class="secondary-btn" title="Add to Google Calendar"><i class="fa-brands fa-google"></i> <span data-t="btn_google_cal">Google Cal</span></button>
+                    <button id="cal-ics-btn" class="secondary-btn" title="Download .ics for Apple Calendar"><i class="fa-solid fa-calendar-check"></i> <span data-t="btn_download_ics">Download .ics</span></button>
+                    <button id="new-search-btn" class="secondary-btn"><i class="fa-solid fa-arrow-left"></i> <span data-t="btn_new_search">New Search</span></button>
                 </div>
             </div>
 
@@ -128,10 +138,11 @@
 
             <!-- TABS -->
             <div class="tabs fade-in-up" style="animation-delay: 0.2s">
-                <button class="tab-btn active" data-tab="packages">Packages</button>
-                <button class="tab-btn" data-tab="itinerary">Itinerary</button>
-                <button class="tab-btn" data-tab="local">Local Guide</button>
-                <button class="tab-btn" data-tab="map">Interactive Map</button>
+                <button class="tab-btn active" data-tab="packages" data-t="tab_packages">Packages</button>
+                <button class="tab-btn" data-tab="itinerary" data-t="tab_itinerary">Itinerary</button>
+                <button class="tab-btn" data-tab="local" data-t="tab_local">Local Guide</button>
+                <button class="tab-btn" data-tab="intel" data-t="tab_intel">Travel Intel</button>
+                <button class="tab-btn" data-tab="map" data-t="tab_map">Interactive Map</button>
             </div>
 
             <!-- TAB CONTENTS -->
@@ -147,7 +158,7 @@
                 <!-- Itinerary Tab -->
                 <div id="tab-itinerary" class="tab-pane">
                     <div class="itinerary-toolbar">
-                        <span class="itinerary-toolbar-label">Export itinerary</span>
+                        <span class="itinerary-toolbar-label" data-t="export_label">Export itinerary</span>
                         <button id="it-google-btn" class="secondary-btn"><i class="fa-brands fa-google"></i> Google Calendar</button>
                         <button id="it-ics-btn" class="secondary-btn"><i class="fa-solid fa-download"></i> Download .ics</button>
                     </div>
@@ -160,35 +171,124 @@
                 <div id="tab-local" class="tab-pane">
                     <div class="masonry-grid">
                         <div class="guide-card glass-panel">
-                            <h3><i class="fa-solid fa-landmark"></i> Must Visits</h3>
+                            <h3><i class="fa-solid fa-landmark"></i> <span data-t="guide_visits">Must Visits</span></h3>
                             <ul id="must-visits-list"></ul>
                         </div>
                         <div class="guide-card glass-panel">
-                            <h3><i class="fa-solid fa-language"></i> Language</h3>
+                            <h3><i class="fa-solid fa-language"></i> <span data-t="guide_lang">Language</span></h3>
                             <p id="guide-language"></p>
                         </div>
                         <div class="guide-card glass-panel">
-                            <h3><i class="fa-solid fa-money-bill-wave"></i> Currency</h3>
+                            <h3><i class="fa-solid fa-money-bill-wave"></i> <span data-t="guide_curr">Currency</span></h3>
                             <p id="guide-currency"></p>
                         </div>
                         <div class="guide-card glass-panel">
-                            <h3><i class="fa-solid fa-mask"></i> Culture Protocol</h3>
+                            <h3><i class="fa-solid fa-mask"></i> <span data-t="guide_culture">Culture Protocol</span></h3>
                             <p id="guide-culture"></p>
                         </div>
                         <div class="guide-card glass-panel">
-                            <h3><i class="fa-solid fa-utensils"></i> Food Scene</h3>
+                            <h3><i class="fa-solid fa-utensils"></i> <span data-t="guide_food">Food Scene</span></h3>
                             <p id="guide-food"></p>
                         </div>
                         <div class="guide-card glass-panel">
-                            <h3><i class="fa-solid fa-shield-halved"></i> Safety</h3>
+                            <h3><i class="fa-solid fa-shield-halved"></i> <span data-t="guide_safety">Safety</span></h3>
                             <p id="guide-safety"></p>
                         </div>
                         <div class="guide-card glass-panel">
-                            <h3><i class="fa-solid fa-suitcase-rolling"></i> Smart Packing List</h3>
+                            <h3><i class="fa-solid fa-suitcase-rolling"></i> <span data-t="guide_packing">Smart Packing List</span></h3>
                             <ul id="packing-list" style="list-style-type: none; margin-top: 10px;"></ul>
                         </div>
                     </div>
                 </div>
+
+                <!-- Travel Intel Tab -->
+                <div id="tab-intel" class="tab-pane">
+                    <div class="intel-grid">
+                        <!-- Row 1: Time, AQI, Currency -->
+                        <div class="intel-card glass-panel mini">
+                            <div class="mini-label"><i class="fa-solid fa-clock"></i> <span data-t="intel_local_time">Local Time</span></div>
+                            <div id="intel-local-time" class="mini-val">--:--:--</div>
+                        </div>
+                        <div class="intel-card glass-panel mini">
+                            <div class="mini-label"><i class="fa-solid fa-wind"></i> <span data-t="intel_aqi">Air Quality</span></div>
+                            <div id="intel-aqi" class="mini-val">--</div>
+                        </div>
+                        <div class="intel-card glass-panel mini currency-widget">
+                            <div class="mini-label"><i class="fa-solid fa-comments-dollar"></i> <span data-t="intel_converter">Converter</span></div>
+                            <div class="currency-row">
+                                <input type="number" id="curr-amount" value="1" class="glass-input">
+                                <span id="curr-from">USD</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                                <span id="curr-to-val">--</span>
+                                <span id="curr-to-sym">???</span>
+                            </div>
+                        </div>
+
+                        <!-- Row 2: Best Time & Daily Spend -->
+                        <div class="intel-card glass-panel col-span-2">
+                            <h3><i class="fa-solid fa-calendar-check"></i> <span data-t="intel_best_time">Best Time to Visit</span></h3>
+                            <div class="best-time-box">
+                                <div id="intel-best-months" class="best-months">Months</div>
+                                <p id="intel-best-advice" class="best-advice">Advice</p>
+                            </div>
+                        </div>
+                        <div class="intel-card glass-panel">
+                            <h3><i class="fa-solid fa-sack-dollar"></i> <span data-t="intel_daily_spend">Daily Spend Estimator</span></h3>
+                            <div class="spend-grid" id="intel-spend-grid">
+                                <!-- Spend items injected -->
+                            </div>
+                        </div>
+
+                        <!-- Row 3: Utilities & Emergency -->
+                        <div class="intel-card glass-panel">
+                            <h3><i class="fa-solid fa-bolt"></i> <span data-t="intel_utilities">Power & Water</span></h3>
+                            <div class="util-list" id="intel-util-list">
+                                <!-- Utility items injected -->
+                            </div>
+                        </div>
+                        <div class="intel-card glass-panel emergency-card">
+                            <h3><i class="fa-solid fa-phone-flip"></i> <span data-t="intel_emergency">Emergency Numbers</span></h3>
+                            <div class="emergency-grid" id="intel-emergency-grid">
+                                <!-- Emergency items injected -->
+                            </div>
+                        </div>
+                        <div class="intel-card glass-panel">
+                            <h3><i class="fa-solid fa-sim-card"></i> <span data-t="intel_sim">SIM Card Guide</span></h3>
+                            <p id="intel-sim-guide"></p>
+                        </div>
+
+                        <!-- Row 4: Apps, Scams, Tips -->
+                        <div class="intel-card glass-panel col-span-2">
+                            <h3><i class="fa-solid fa-mobile-screen-button"></i> <span data-t="intel_apps">Must-Download Apps</span></h3>
+                            <div class="apps-grid" id="intel-apps-grid">
+                                <!-- Apps injected -->
+                            </div>
+                        </div>
+                        <div class="intel-card glass-panel">
+                            <h3><i class="fa-solid fa-mask"></i> <span data-t="intel_scams">Scam Encyclopedia</span></h3>
+                            <div class="scam-list" id="intel-scam-list">
+                                <!-- Scams injected -->
+                            </div>
+                        </div>
+                        
+                        <div class="intel-card glass-panel col-span-3 tips-widget">
+                            <h3><i class="fa-solid fa-lightbulb"></i> <span data-t="intel_tips">Traveler Tips Feed</span></h3>
+                            <div class="tips-carousel">
+                                <div id="tips-container" class="tips-container"></div>
+                                <div class="tips-dots" id="tips-dots"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Tab -->
+                <div id="tab-map" class="tab-pane">
+                    <div class="map-legend" id="map-legend"></div>
+                    <div id="leaflet-map"></div>
+                </div>
+
+            </div>
+        </section>
 
                 <!-- Map Tab -->
                 <div id="tab-map" class="tab-pane">
